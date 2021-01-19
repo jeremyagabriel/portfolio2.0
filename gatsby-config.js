@@ -6,5 +6,44 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Jeremy Gabriel's Portfolio`
+  },
+  menuLinks:[
+    {
+      name: 'home',
+      link: '/'
+    },
+    {
+      name: 'battleship',
+      link: '/play'
+    },
+  ],
+  plugins: [
+    'gatsby-plugin-theme-ui',
+    {
+      resolve: `gatsby-plugin-google-fonts-v2`,
+      options: {
+        fonts: [
+          {
+            family: 'Roboto Condensed',
+            weights: ['300', '400', '700']
+          },
+          {
+            family: 'Poppins',
+            weights: ['100', '300', '400', '500', '700', '900']
+          },
+          {
+            family: 'Roboto',
+            weights: ['100', '300', '400', '500', '700', '900']
+          },
+          {
+            family: 'DM Serif Display',
+            weights: ['400']
+          },
+        ],
+        display: 'block',
+      }
+    }
+  ],
 }

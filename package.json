@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "jeremy-gabriel-portfolio",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A collection of web development work",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -14,9 +14,20 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "framer-motion": "^3.2.1",
     "gatsby": "^2.26.1",
+    "gatsby-plugin-google-fonts-v2": "0.0.6",
+    "gatsby-plugin-theme-ui": "^0.3.5",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-icons": "^4.1.0",
+    "react-intersection-observer": "^8.31.0",
+    "react-transition-group": "^4.4.1",
+    "theme-ui": "^0.3.5"
   },
   "devDependencies": {
     "prettier": "2.2.1"
