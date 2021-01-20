@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { CircleButton } from '../CircleButton';
 import { motion } from "framer-motion";
 
-export const Buttons = () => {
+export const Buttons = ({ ...props }) => {
 
   return (
     <motion.div
@@ -13,36 +13,51 @@ export const Buttons = () => {
       initial='hidden'
       animate='visible'
       variants={motionVariant}
+      {...props}
     >
       <CircleButton
         text='About'
         to={'/#'}
-        circleSx={{ my: [1] }}
+        {...circleSx}
       />
       <CircleButton
         text='Work'
         to={'/#'}
-        circleSx={{ my: [1] }}
+        {...circleSx}
       />
       <CircleButton
         icon={FaGithub}
         to={'https://github.com/jeremyagabriel'}
-        circleSx={{ my: [1] }}
+        {...circleSx}
       />
       <CircleButton
         icon={FaLinkedin}
         to={'https://www.linkedin.com/in/jeremyagabriel'}
-        circleSx={{ my: [1] }}
+        {...circleSx}
       />
     </motion.div>
   )
 }
 
 const boxSx = {
-  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  mr: [12],
+  display: ['none', null, 'flex'],
+  mr: [0, null, 6, 12],
+};
+
+const circleSx = {
+  circleSx: {
+    my: [1],
+    width: ['50px', null, null, '80px'],
+    height: ['50px', null, null, '80px'],
+  },
+  textSx: {
+    fontSize: [2, null, null, 4]
+  },
+  iconSx: {
+    fontSize: ['24px', null, null, '40px']
+  }
 };
 
 const motionVariant = {

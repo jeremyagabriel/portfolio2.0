@@ -1,7 +1,7 @@
 const headingSx = {
   fontFamily: 'heading',
   lineHeight: 'heading',
-  fontWeight: 'bold',
+  fontWeight: 'semi',
   // letterSpacing: 'heading',
   textTransform: 'uppercase',
   color: 'secondary',
@@ -13,7 +13,7 @@ export default {
     background: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
-    primary: '#FC5743',
+    primary: '#f65054',
     secondary: '#212169',
   },
   breakpoints: [
@@ -26,13 +26,14 @@ export default {
   ],
   fonts: {
     body: `'Poppins', sans-serif`,
-    heading: `'Roboto Condensed', sans-serif`,
+    heading: `'Barlow Condensed', sans-serif`,
   },
   fontWeights: {
     "thin": 100,
     "light": 300,
     "regular": 400,
-    "semi": 500,
+    "mediuum": 500,
+    "semi": 600,
     "bold": 700,
     "black": 900
   },

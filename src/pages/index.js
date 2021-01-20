@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Container } from 'theme-ui';
 import { Main } from '../layouts';
+import { About } from '../components/About'
 
 const Home = ({ data }) => {
 
@@ -10,7 +11,7 @@ const Home = ({ data }) => {
         data-comp={Home.displayName}
         sx={containerSx}
       >
-
+        <About />
       </Container>
     </Main>
   )
@@ -19,9 +20,11 @@ const Home = ({ data }) => {
 const containerSx = {
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   minHeight: '1000px',
   bg: 'white',
+  px: [1, 2, 3],
+  py: [6, 7, 8],
 };
 
 Home.displayName = 'Home';

@@ -9,16 +9,6 @@ module.exports = {
   siteMetadata: {
     title: `Jeremy Gabriel's Portfolio`
   },
-  menuLinks:[
-    {
-      name: 'home',
-      link: '/'
-    },
-    {
-      name: 'battleship',
-      link: '/play'
-    },
-  ],
   plugins: [
     'gatsby-plugin-theme-ui',
     {
@@ -36,6 +26,10 @@ module.exports = {
           {
             family: 'Roboto',
             weights: ['100', '300', '400', '500', '700', '900']
+          },
+          {
+            family: 'Barlow Condensed',
+            weights: ['100', '300', '400', '500', '600', '700', '900']
           },
           {
             family: 'DM Serif Display',

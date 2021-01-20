@@ -2,16 +2,18 @@
 import { jsx, Text, Box } from 'theme-ui';
 import { motion, useAnimation } from "framer-motion";
 
+const MotionBox = motion.custom(Box);
+
 export const Heading = () => {
 
   return (
     <Box data-comp={Heading.displayName}>
-      <motion.div
+      <MotionBox
         initial='hidden'
         animate='show'
         variants={container}
       >
-        <motion.div variants={item}>
+        <MotionBox variants={item}>
           <Text
             variant='text.h2'
             sx={{
@@ -23,31 +25,31 @@ export const Heading = () => {
           >
             Full-Stack
           </Text>
-        </motion.div>
-        <motion.div variants={item}>
+        </MotionBox>
+        <MotionBox variants={item}>
           <Text
             variant='text.h2'
             sx={textSx}
           >
             Software
           </Text>
-        </motion.div>
-        <motion.div variants={item}>
+        </MotionBox>
+        <MotionBox variants={item}>
           <Text
             variant='text.h2'
             sx={textSx}
           >
             Developer
           </Text>
-        </motion.div>
-      </motion.div>
+        </MotionBox>
+      </MotionBox>
     </Box>
   );
 }
 
 const textSx = {
   color: 'white',
-  fontSize: ['100px', null, null, null, '120px'],
+  fontSize: ['70px', '90px', null, '110px', '130px'],
 };
 
 const container = {

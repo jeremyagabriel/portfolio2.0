@@ -2,8 +2,10 @@
 import { jsx, Text, Box, Flex } from 'theme-ui';
 import { navigate } from 'gatsby';
 import { FaBars } from 'react-icons/fa';
+import { HiOutlineArrowDown } from 'react-icons/hi';
 import { Heading } from './Heading';
 import { Buttons } from './Buttons';
+import { CircleButton } from '../CircleButton';
 import { UnderlineButton } from '../UnderlineButton';
 
 export const Header = ({ ...props }) => {
@@ -24,14 +26,25 @@ export const Header = ({ ...props }) => {
       >
         <Text
           variant='text.h2'
-          sx={{ color: 'white' }}
+          sx={{ color: 'white', mr: [2] }}
         >
           Jeremy Gabriel
         </Text>
-        <Flex sx={{ alignItems: 'center' }}>
-          <UnderlineButton text='Contact Me' />
+        <Flex sx={{ alignItems: 'center', justifyContent: 'flex-end' }}>
+          <UnderlineButton
+            text='Contact Me'
+            sx={{
+              mr: [6, null, 0],
+              display: ['none', null, 'block']
+            }}
+          />
           <FaBars
-            sx={{ color: 'white', fontSize: '30px'}}
+            sx={{
+              display: ['block', null, 'none'],
+              color: 'white',
+              fontSize: '30px',
+              cursor: 'pointer',
+            }}
           />
         </Flex>
       </Box>
@@ -39,6 +52,23 @@ export const Header = ({ ...props }) => {
       <Box sx={contentSx}>
         <Buttons />
         <Heading />
+      </Box>
+
+      <Box sx={{display: ['block', null, 'none']}}>
+        <CircleButton
+          icon={HiOutlineArrowDown}
+          side='top'
+          circleSx={{
+            width: '50px',
+            height: '50px',
+            position: 'absolute',
+            mx: 'auto',
+            left: 0,
+            right: 0,
+            bottom: '20vh',
+          }}
+          iconSx={{ fontSize: '24px' }}
+        />
       </Box>
 
       <Box sx={rightTriangle} />
@@ -55,13 +85,13 @@ const headerSx = {
   flexDirection: 'column',
   position: 'relative',
   bg: 'primary',
-  background: 'linear-gradient(145deg, rgba(252,87,67,1) 48%, rgba(207,68,51,1) 100%)',
+  background: 'linear-gradient(145deg, rgba(246,80,84,1) 82%, rgba(255,69,73,1) 100%)',
 };
 
 const navbarSx = {
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
+  alignItems: ['flex-start', null, 'center'],
   p: 3,
 };
 

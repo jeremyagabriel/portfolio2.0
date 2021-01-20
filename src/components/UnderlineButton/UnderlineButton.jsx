@@ -3,19 +3,22 @@ import { jsx, Text, Box } from 'theme-ui';
 import { motion, useAnimation } from "framer-motion";
 import { navigate } from 'gatsby';
 
+const MotionBox = motion.custom(Box);
+
 export const UnderlineButton = ({
   text,
   to,
   buttonSx,
   textSx,
   underlineSx,
+  lineColor = 'white',
   ...props
 }) => {
 
   const controls = useAnimation();
 
   return (
-    <motion.div
+    <MotionBox
       data-comp={UnderlineButton.displayName}
       sx={{ ...defaultButtonSx, ...buttonSx }}
       onClick={() => {
@@ -33,24 +36,23 @@ export const UnderlineButton = ({
       >
         { text }
       </Text>
-      <motion.div
+      <MotionBox
         sx={{ position: 'relative', ...defaultUnderlineSx, ...underlineSx }}
         initial='hidden'
         animate={controls}
         variants={motionVariant}
       >
-        <Box sx={{ ...motionLineSx, left: 0 }}/>
+        <Box sx={{ ...motionLineSx, bg: lineColor, left: 0 }}/>
         <Box sx={{ ...motionLineSx, bg: 'transparent', left: '-100%' }}/>
-        <Box sx={{ ...motionLineSx, left: '-200%' }}/>
-    </motion.div>
-    </motion.div>
+        <Box sx={{ ...motionLineSx, bg: lineColor, left: '-200%' }}/>
+    </MotionBox>
+    </MotionBox>
   );
 }
 
 const defaultButtonSx = {
   display: 'flex',
   flexDirection: 'column',
-  mr: 6,
   cursor: 'pointer',
   overflow: 'hidden',
 };
@@ -70,7 +72,6 @@ const motionLineSx = {
   position: 'absolute',
   height: '100%',
   width: '100%',
-  bg: 'white',
 };
 
 const motionVariant = {
