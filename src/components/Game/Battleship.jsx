@@ -14,7 +14,7 @@ import DogLarge from '../../assets/images/dog-l.jpg';
 import DogLargeFound from '../../assets/images/dog-l-found.jpg';
 import DogLargeGray from '../../assets/images/dog-l-gray.jpg';
 import Treat from '../../assets/images/treat.jpg';
-import '../game/Battleship.css';
+import './Battleship.css';
 
 class Battleship extends Component{
   constructor(props) {
