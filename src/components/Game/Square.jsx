@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Image, Box } from 'theme-ui';
 import React from 'react';
-import '../game/Battleship.css';
+import './Battleship.css';
 
 const Square = props => {
   const handleClickToApp = () => {

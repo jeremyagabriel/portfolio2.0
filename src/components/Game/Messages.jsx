@@ -1,5 +1,5 @@
 import React from 'react';
-import '../game/Battleship.css';
+import './Battleship.css';
 
 const Messages = props => {
   let message;
