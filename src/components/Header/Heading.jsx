@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from 'theme-ui';
-import { motion, useAnimation } from "framer-motion";
-
-const MotionBox = motion.custom(Box);
+import { MotionBox, Motion, MotionText } from '../Components';
 
 export const Heading = () => {
 
@@ -55,7 +53,7 @@ const textSx = {
 const container = {
   show: {
     transition: {
-      staggerChildren: 0.05
+      staggerChildren: 0.1
     }
   }
 }

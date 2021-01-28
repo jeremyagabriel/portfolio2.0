@@ -2,12 +2,17 @@
 import { jsx } from 'theme-ui';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { CircleButton } from '../CircleButton';
-import { motion } from "framer-motion";
+import { MotionBox } from '../Components';
 
-export const Buttons = ({ ...props }) => {
+
+export const Buttons = ({
+  aboutRef,
+  projectsRef,
+  ...props
+}) => {
 
   return (
-    <motion.div
+    <MotionBox
       data-comp={Buttons.displayName}
       sx={boxSx}
       initial='hidden'
@@ -17,12 +22,12 @@ export const Buttons = ({ ...props }) => {
     >
       <CircleButton
         text='About'
-        to={'/#'}
+        to={aboutRef}
         {...circleSx}
       />
       <CircleButton
         text='Work'
-        to={'/#'}
+        to={projectsRef}
         {...circleSx}
       />
       <CircleButton
@@ -35,7 +40,7 @@ export const Buttons = ({ ...props }) => {
         to={'https://www.linkedin.com/in/jeremyagabriel'}
         {...circleSx}
       />
-    </motion.div>
+    </MotionBox>
   )
 }
 

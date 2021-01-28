@@ -13,8 +13,9 @@ export default {
     background: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
-    primary: '#f65054',
-    secondary: '#212169',
+    primary: '#F65054',
+    // secondary: '#212169',
+    secondary: '#000000',
   },
   breakpoints: [
     "480px",
@@ -25,14 +26,14 @@ export default {
     "1440px"
   ],
   fonts: {
-    body: `'Poppins', sans-serif`,
+    body: `'Roboto', sans-serif`,
     heading: `'Barlow Condensed', sans-serif`,
   },
   fontWeights: {
     "thin": 100,
     "light": 300,
     "regular": 400,
-    "mediuum": 500,
+    "medium": 500,
     "semi": 600,
     "bold": 700,
     "black": 900
@@ -54,7 +55,7 @@ export default {
       lineHeight: 'body',
       fontWeight: 'light',
       fontSize: 2,
-      color: 'black',
+      color: 'text',
     },
     h1: {
       ...headingSx,
@@ -135,5 +136,13 @@ export default {
     80, //10
     88,
     96,
+    108,
+    120,
+    132, //15
+    144,
+    156,
+    168,
+    180,
+    192, //20
   ],
 }

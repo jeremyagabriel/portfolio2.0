@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from 'theme-ui';
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from 'framer-motion';
 import { navigate } from 'gatsby';
+import scrollTo from 'gatsby-plugin-smoothscroll';
+import { MotionBox } from '../Components';
 
-const MotionBox = motion.custom(Box);
 
 export const UnderlineButton = ({
   text,
@@ -24,7 +25,7 @@ export const UnderlineButton = ({
       onClick={() => {
         to.startsWith('http')
           ? window.open(to, '_blank')
-          : navigate(to)
+          : scrollTo(to)
       }}
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}
@@ -45,7 +46,7 @@ export const UnderlineButton = ({
         <Box sx={{ ...motionLineSx, bg: lineColor, left: 0 }}/>
         <Box sx={{ ...motionLineSx, bg: 'transparent', left: '-100%' }}/>
         <Box sx={{ ...motionLineSx, bg: lineColor, left: '-200%' }}/>
-    </MotionBox>
+      </MotionBox>
     </MotionBox>
   );
 }

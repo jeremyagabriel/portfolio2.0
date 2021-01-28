@@ -1,0 +1,209 @@
+#body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#battleshipTitle {
+  font-size: 40px;
+  margin: 20px 0px 10px 0px;
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 2px;
+}
+
+#subTitleContainer {
+  font-size: 15px;
+  background-color: rgb(252,87,67);
+  padding: 10px;
+  color: white;
+  margin-bottom: 0px;
+}
+
+#subTitle {
+  margin: 0px;
+  font-weight: 600;
+}
+
+#square {
+  width: 50px;
+  height: 50px;
+  border: 0.5px solid #419d43;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5px;
+}
+
+#board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 540px;
+}
+
+#message {
+  font-size: 20px;
+  margin-top: 0px;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+#stats {
+  line-height: 25px;
+  margin: 10px 0px;
+}
+
+.regularFont {
+  color: white;
+  font-weight: 800;
+}
+
+.warningFont {
+  color: rgb(252,87,67);
+  font-weight: 800;
+}
+
+#hitCounter {
+  font-weight: 800;
+}
+
+#battleshipFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#reset {
+  font-size: 16px;
+  background-color: rgb(252,87,67);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 120px;
+  height: 25px;
+  font-family: 'Barlow Condensed', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.photos {
+  width: 50px;
+  height: 50px;
+}
+
+#footer {
+  font-size: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.header {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  position: relative;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0px;
+}
+
+#headerTitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-align: left;
+  font-size: 4.3vw;
+  font-weight: 700;
+  color: white;
+  margin: 1.25% 0% 1.25% 2.5%;
+  transition: 0.25s;
+}
+
+
+@media only screen and (min-width: 930px) {
+  /* HEADER COMPONENT */
+  #headerTitle {
+    font-size: 40px;
+    margin: 11.7px 0px 11.7px 23.22px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  #headerTitle {
+    font-size: 25.8px;
+    margin: 7.5px 0 0 0;
+  }
+  #battleshipTitle {
+    margin-top: 60px;
+  }
+  /*
+  #subTitleContainer {
+    font-size: 2.5vw;
+    padding: 1.67vw;
+  }
+
+  #subTitleLabel {
+    font-size: 1.8vw;
+  } */
+
+  #square {
+    width: 8.33vw;
+    height: 8.33vw;
+    border: 0.1vw solid #419d43;
+  }
+
+  #board {
+    width: 93vw;
+  }
+
+  #message {
+    font-size: 3.33vw;
+    height: 6.67vw;
+  }
+
+  #stats {
+    line-height: 4.2vw;
+    margin: 1.665vw 0px;
+    font-size: 2.67vw;
+  }
+
+  /* #reset {
+    font-size: 2.67vw;
+    letter-spacing: 0.153vw;
+    width: 20vw;
+    height: 4vw;
+  } */
+
+  .photos {
+    width: 8.33vw;
+    height: 8.33vw;
+  }
+
+}
+
+@media only screen and (max-width: 389px) {
+  #subTitle {
+    font-size: 3.85vw;
+  }
+}

@@ -1,15 +1,16 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Flex } from 'theme-ui';
+import { jsx, Text, Box } from 'theme-ui';
 import React, { memo } from 'react';
-import { motion, useAnimation } from "framer-motion";
+import scrollTo from 'gatsby-plugin-smoothscroll';
+import { useAnimation } from 'framer-motion';
 import { navigate } from 'gatsby';
+import { Flex, MotionBox } from '../Components';
 
-const MotionBox = motion.custom(Box);
 
 export const CircleButton = memo(({
   text,
   icon,
-  to = '/#',
+  to = '#',
   circleSx,
   textSx,
   iconSx,
@@ -29,9 +30,12 @@ export const CircleButton = memo(({
         ...circleSx,
       }}
       onClick={() => {
-        to.startsWith('http')
+        // to.startsWith('http')
+        //   ? window.open(to, '_blank')
+        //   : scrollTo(to)
+        typeof to === 'string' && to.startsWith('http')
           ? window.open(to, '_blank')
-          : navigate(to)
+          : to.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }}
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}
