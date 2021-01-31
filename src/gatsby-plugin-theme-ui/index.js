@@ -4,7 +4,7 @@ const headingSx = {
   fontWeight: 'semi',
   // letterSpacing: 'heading',
   textTransform: 'uppercase',
-  color: 'secondary',
+  color: 'black',
 };
 
 export default {
@@ -14,8 +14,8 @@ export default {
     white: '#FFFFFF',
     black: '#000000',
     primary: '#F65054',
-    // secondary: '#212169',
-    secondary: '#000000',
+    secondary: '#212169',
+    // secondary: '#000000',
   },
   breakpoints: [
     "480px",

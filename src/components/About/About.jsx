@@ -4,10 +4,13 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, useAnimation, useViewportScroll, useTransform, useMotionValue } from 'framer-motion';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import { useSetRecoilState } from 'recoil';
-import { useInView } from 'react-intersection-observer';
-import { Flex, MotionBox, MotionText, Image } from '../Components';
+import { Flex, FlexCol, MotionBox, MotionText, Image } from '../Components';
 import { CircleButton } from '../CircleButton';
+import { Line } from '../Animations';
+import { Heading } from '../Heading';
 import Avatar from '../../assets/images/jeremy-headshot.jpg';
+import JeremyCartoon from '../../assets/images/jeremy-cartoon.png';
+import Halftone from '../../assets/images/halftone.png';
 import { aboutAtom } from '../../lib/atoms';
 
 
@@ -30,57 +33,45 @@ export const About = () => {
   const y3 = useTransform(scrollY, [elementTop, elementTop + 5], [0, -1], {
     clamp: false
   });
+  const y4 = useTransform(scrollY, [elementTop, elementTop + 15], [0, -1], {
+    clamp: false
+  });
 
   return (
     <Flex
       data-comp={About.displayName}
       ref={ref}
-      id='about-section'
+      id='about'
       sx={{
         flexDirection: ['column-reverse', null, null, 'row'],
         alignItems: 'center',
         justifyContent: 'center',
         mb: [8, 10, 20],
+        pt: [8, 10, null, 4],
       }}
     >
-      <Box
+      <FlexCol
         sx={{
           maxWidth: '600px',
           mr: [0, null, null, 12],
         }}
       >
-        <MotionBox
-          variants={itemVariant}
-          animateOnLoad={true}
-          sx={{ mb: [6] }}
-        >
-          <Flex sx={{ alignItems: 'center', mb: [1], pl: [1] }}>
-            <Text
-              variant='text.h4'
-              sx={{
-                color: 'primary',
-                // fontWeight: 'regular',
-                letterSpacing: '0.05em',
-                mr: [3]
-              }}
-            >
-              Hello World
-            </Text>
-            <Box sx={{ height: '2px', width: ['30px', '60px'], bg: 'primary' }}/>
-          </Flex>
-          <Text variant='text.h1'>About Me</Text>
-        </MotionBox>
+        <Heading
+          heading='About Me'
+          subheading='Hello World'
+          styles={{ mb: [3, null, null, 6], alignSelf: 'flex-start' }}
+        />
 
         <MotionText
-          variants={itemVariant}
+          variants='default'
           animateOnLoad={true}
-          sx={{ mb: [6] }}
+          sx={{ mb: [3, null, null, 6] }}
         >
           Project Manager turned Software Developer, and I'm here to stay, baby. As I live and dream programming, I'm powered by the love of efficient code through the lens of enjoyable, intuitive design. Let's build some awesome things together, and maybe eat, cry, and celebrate along the way.
         </MotionText>
 
         <MotionBox
-          variants={itemVariant}
+          variants='default'
           animateOnLoad={true}
           sx={{
             display: 'flex',
@@ -91,7 +82,7 @@ export const About = () => {
             variant='text.h4'
             sx={{ mr: [2] }}
           >
-            More About Me
+            Read More
           </Text>
           <CircleButton
             icon={HiOutlineArrowRight}
@@ -104,17 +95,17 @@ export const About = () => {
             iconSx={{ color: 'secondary', fontSize: '24px' }}
           />
         </MotionBox>
-      </Box>
+      </FlexCol>
 
       <Box
         sx={{
           position: 'relative',
-          minWidth: '300px',
-          minHeight: '300px',
-          maxWidth: '300px',
-          maxHeight: '300px',
-          width: '300px',
-          height: '300px',
+          minWidth: '240px',
+          minHeight: '240px',
+          maxWidth: '240px',
+          maxHeight: '240px',
+          width: '240px',
+          height: '240px',
           mb: [6, null, null, 0],
         }}
       >
@@ -128,11 +119,25 @@ export const About = () => {
           }}
           style={{ y: y1 }}
         />
-        {/* <motion.div sx={{ width: '100px', height: '100px', bg: 'green' }} style={{ y: y1, x: -50 }} />
         <motion.div
-          sx={{ width: '100px', height: '100px', bg: 'green' }}
-          style={{ y: y2, x: 50, background: 'salmon' }}
-        /> */}
+          sx={{
+            position: 'absolute',
+            top: '40px',
+            width: '160px',
+            right: '-20px',
+          }}
+          style={{ y: y3 }}
+        >
+          <Image
+            src={Halftone}
+            sx={{
+              width: '100%',
+              objectFit: 'contain',
+              height: 'auto',
+              filter: 'invert(1)'
+            }}
+          />
+        </motion.div>
 
         <motion.div
           sx={{
@@ -144,42 +149,25 @@ export const About = () => {
           }}
           style={{ y: y2 }}
         >
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '100px',
-              left: '-50px',
-              width: '320px',
-              height: '3px',
-              bg: 'secondary',
-              transform: 'rotate(-30deg)',
-            }}
-          />
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '100px',
-              left: '-20px',
-              width: '340px',
-              height: '3px',
-              bg: 'secondary',
-              transform: 'rotate(-30deg)',
-            }}
-          />
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '140px',
+          <Line />
+          <Line
+            x='105%'
+            styles={{
+              top: '108px',
               left: '-20px',
               width: '300px',
-              height: '3px',
-              bg: 'secondary',
-              transform: 'rotate(-30deg)',
+            }}
+          />
+          <Line
+            styles={{
+              top: '140px',
+              left: '-20px',
+              width: '280px',
             }}
           />
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           sx={{
             position: 'absolute',
             top: '80px',
@@ -189,9 +177,9 @@ export const About = () => {
             bg: 'white',
           }}
           style={{ y: y3 }}
-        />
+        /> */}
 
-        <Image
+        {/* <Image
           src={Avatar}
           alt='Jeremy Gabriel Avatar'
           lazy={false}
@@ -203,26 +191,31 @@ export const About = () => {
             height: '180px',
             objectFit: 'contain',
           }}
-        />
+        /> */}
+        <motion.div
+          sx={{
+            position: 'absolute',
+            top: '-60px',
+            left: '70px',
+          }}
+          style={{ y: y4 }}
+        >
+          <Image
+            src={JeremyCartoon}
+            alt='Jeremy Gabriel Avatar'
+            lazy={false}
+            sx={{
+              height: ['320px', null, null, '380px'],
+              objectFit: 'contain',
+              userSelect: 'none',
+            }}
+          />
+        </motion.div>
       </Box>
     </Flex>
   );
 }
 
 const elementTop = 620;
-
-const itemVariant = {
-  hidden: { opacity: 0, y: -50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 700,
-      damping: 30,
-      duration: 0.8,
-    },
-  }
-};
 
 About.displayName = 'AboutSection';

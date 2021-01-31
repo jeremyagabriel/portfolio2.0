@@ -3,16 +3,22 @@ import { jsx, Text, Box } from 'theme-ui';
 import { useState, useRef, useEffect } from 'react';
 import { motion, useAnimation, useViewportScroll, useTransform, useMotionValue } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Lazy, Navigation, Pagination } from 'swiper';
 import { useSetRecoilState } from 'recoil';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import { useInView } from 'react-intersection-observer';
 import { Flex, MotionBox, MotionText, Image, FlexCol } from '../Components';
 import { CircleButton } from '../CircleButton';
+import { Heading } from '../Heading';
 import { ProjectCard } from './ProjectCard';
 import { projectsAtom } from '../../lib/atoms';
 
+SwiperCore.use([Navigation, Pagination, Lazy]);
+
 
 export const Projects = ({ projects }) => {
+
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const setProjectsRef = useSetRecoilState(projectsAtom);
   const ref = useRef(null);
@@ -21,82 +27,88 @@ export const Projects = ({ projects }) => {
     setProjectsRef(ref);
   }, [])
 
-
-  const { scrollY } = useViewportScroll();
-  const y1 = useTransform(scrollY, [elementTop, elementTop + 20], [0, -1], {
-    clamp: false
-  });
-  const y2 = useTransform(scrollY, [elementTop, elementTop + 10], [0, -1], {
-    clamp: false
-  });
-  const y3 = useTransform(scrollY, [elementTop, elementTop + 5], [0, -1], {
-    clamp: false
-  });
-
   return (
     <FlexCol
       data-comp={Projects.displayName}
       ref={ref}
-      id='projects-section'
+      id='projects'
       sx={{
         alignItems: 'center',
         justifyContent: 'center',
+        pt: [2],
+        mb: [8, 10, 20],
       }}
     >
-      <Box
+      <Heading
+        heading='Projects'
+        subheading='Featured Work'
+      />
+
+      <Flex
         sx={{
-          maxWidth: '600px',
-          mr: [0, null, null, 12],
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          width: '100%',
+          maxWidth: '1100px',
         }}
       >
-        <MotionBox
-          variants={itemVariant}
-          animateOnLoad={true}
-          sx={{ mb: [6] }}
-        >
-          <Flex sx={{ alignItems: 'center', mb: [1], pl: [1] }}>
-            <Text
-              variant='text.h4'
-              sx={{
-                color: 'primary',
-                // fontWeight: 'regular',
-                letterSpacing: '0.05em',
-                mr: [3]
-              }}
-            >
-              Featured Work
-            </Text>
-            <Box sx={{ height: '2px', width: ['30px', '60px'], bg: 'primary' }}/>
-          </Flex>
-          <Text variant='text.h1'>Projects</Text>
-        </MotionBox>
-      </Box>
+        { projects?.slice(0, isExpanded ? projects.length : 4)
+          .map((project, index) => (
+            <ProjectCard
+              project={project}
+              key={index}
+            />
+        ))}
+      </Flex>
 
-      { projects?.map((project, index) => (
-          <ProjectCard
-            project={project}
-            key={index}
+      <MotionBox
+        variants='default'
+        animateOnLoad={true}
+      >
+        { !isExpanded &&
+          <CircleButton
+            text='See More'
+            circleSx={{
+              // width: '50px',
+              // height: '50px',
+              borderColor: 'black',
+            }}
+            textSx={{
+              color: 'black',
+              fontSize: '18px'
+            }}
+            onClick={() => setIsExpanded(true)}
           />
-      ))}
-
+        }
+      </MotionBox>
     </FlexCol>
   );
 }
 
-const elementTop = 620;
-
-const itemVariant = {
-  hidden: { opacity: 0, y: -50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 700,
-      damping: 30,
-      duration: 0.8,
-    },
-  }
+const SwiperCss = {
+  // width: '100%',
+  // height: '100%',
+  width: '100%',
+  height: '600px'
 };
 
+const elementTop = 620;
+
 Projects.displayName = 'ProjectsSection';
+
+{/* <Swiper
+spaceBetween={50}
+slidesPerView={2}
+navigation
+lazy
+pagination={{ clickable: true }}
+css={SwiperCss}
+>
+{ projects?.map((project, index) => (
+  <SwiperSlide key={index}>
+    <ProjectCard
+      project={project}
+    />
+  </SwiperSlide>
+))}
+</Swiper> */}

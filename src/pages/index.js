@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import { Main } from '../layouts';
 import { About } from '../components/About'
 import { Projects } from '../components/Projects'
+import { Stacks } from '../components/Stacks'
 
 
 const Home = ({ data }) => {
@@ -23,6 +24,7 @@ const Home = ({ data }) => {
         <Projects
           projects={content.projects}
         />
+        <Stacks />
       </Container>
     </Main>
   )
@@ -35,7 +37,8 @@ const containerSx = {
   // minHeight: '1000px',
   bg: 'white',
   px: [1, 2, 3],
-  py: [8, 10, 15],
+  pt: [4, null, null, 15],
+  pb: [8, 10, 15],
 };
 
 Home.displayName = 'Home';

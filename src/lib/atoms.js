@@ -15,4 +15,9 @@ const projectsAtom = atom({
   default: null
 });
 
-export { contactAtom, aboutAtom, projectsAtom };
+const stacksAtom = atom({
+  key: 'stacksAtom',
+  default: null
+});
+
+export { contactAtom, aboutAtom, projectsAtom, stacksAtom };

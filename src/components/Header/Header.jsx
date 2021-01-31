@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from 'theme-ui';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { useAnimation } from 'framer-motion';
-import { FaBars } from 'react-icons/fa';
+import { useAnimation, AnimatePresence } from 'framer-motion';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { HiOutlineArrowDown } from 'react-icons/hi';
 import { Flex, FlexCol, MotionBox, Motion } from '../Components';
 import { Heading } from './Heading';
@@ -17,11 +17,14 @@ import { contactAtom, aboutAtom, projectsAtom } from '../../lib/atoms';
 
 export const Header = ({ ...props }) => {
 
+  const [ menuOpen, setMenuOpen ] = useState(false);
+
   const contactRef = useRecoilValue(contactAtom);
   const aboutRef = useRecoilValue(aboutAtom);
   const projectsRef = useRecoilValue(projectsAtom);
 
   const [ drag, setDrag ] = useState('x');
+  const [ MenuIcon, setMenuIcon ] = useState(FaBars)
   const [ variants, setVariants ] = useState(null);
   const [ motionProps, setMotionProps ] = useState({
     initial: false,
@@ -42,7 +45,8 @@ export const Header = ({ ...props }) => {
     // right: 0,
     width: '103%',
     height: '100%',
-    bg: '#53be54',
+    // bg: '#53be54',
+    bg: 'white',
   }
 
   return (
@@ -50,6 +54,24 @@ export const Header = ({ ...props }) => {
       data-comp={Header.displayName}
       sx={headerSx}
     >
+      {/* <MotionBox
+        initial='hidden'
+        animate='visible'
+        variants={{
+          hidden: { scale: 1, opacity: 0, transition: { duration: 1.5 } },
+          visible: { scale: 50, opacity: [0, 1, 1, 1], transition: { duration: 1.5 } }
+        }}
+        sx={{
+          bg: 'secondary',
+          width: '100px',
+          height: '100px',
+          borderRadius: '50%',
+          position: 'absolute',
+          top: '40px',
+          right: '40px'
+
+        }}
+      /> */}
       <Flex
         sx={{
           ...navbarSx,
@@ -68,7 +90,7 @@ export const Header = ({ ...props }) => {
         <Flex sx={{ alignItems: 'center', justifyContent: 'flex-end' }}>
           <UnderlineButton
             text='Contact Me'
-            to='#contact-section'
+            to={contactRef}
             sx={{
               mr: [6, null, 0],
               display: ['none', null, 'block']
@@ -80,6 +102,16 @@ export const Header = ({ ...props }) => {
               color: 'white',
               fontSize: '30px',
               cursor: 'pointer',
+              zIndex: 10,
+            }}
+            onClick={() => {
+              if (!menuOpen) {
+                setMenuOpen(true);
+                controls.start('visible')
+              } else {
+                setMenuOpen(false);
+                controls.start('hidden')
+              }
             }}
           />
         </Flex>
@@ -96,7 +128,7 @@ export const Header = ({ ...props }) => {
       <Box sx={{display: ['block', null, 'none']}}>
         <CircleButton
           icon={HiOutlineArrowDown}
-          to={contactRef}
+          to={aboutRef}
           side='top'
           circleSx={{
             width: '50px',
@@ -111,9 +143,32 @@ export const Header = ({ ...props }) => {
         />
       </Box>
 
+      {/* <AnimatePresence>
+        <MotionBox
+          key='menu-circle'
+          initial='hidden'
+          animate={controls}
+          exit={{ opacity: 0 }}
+          variants={{
+            hidden: { scale: 1, opacity: [1, 1, 1, 0], transition: { duration: 1 } },
+            visible: { scale: 100, opacity: [0.5, 1, 1, 1], transition: { duration: 1 } }
+          }}
+          sx={{
+            display: ['block', null, 'none'],
+            bg: 'secondary',
+            width: '20px',
+            height: '20px',
+            borderRadius: '50%',
+            position: 'absolute',
+            top: '30px',
+            right: '30px'
+
+          }}
+        />
+      </AnimatePresence> */}
       <Box sx={rightTriangle} />
       <Box sx={leftTriangle} />
-      <MotionBox
+      {/* <MotionBox
         sx={motionSx}
         {...motionProps}
         onDrag={(event, info) => {
@@ -136,7 +191,7 @@ export const Header = ({ ...props }) => {
       >
         <PlayButton />
         <GameContainer />
-      </MotionBox>
+      </MotionBox> */}
     </FlexCol>
   )
 }

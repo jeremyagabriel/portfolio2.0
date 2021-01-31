@@ -1,14 +1,15 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from 'theme-ui';
+import { useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
-import { navigate } from 'gatsby';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 import { MotionBox } from '../Components';
+import { useInView } from 'react-intersection-observer';
 
 
 export const UnderlineButton = ({
   text,
-  to,
+  to = null,
+  onClick,
   buttonSx,
   textSx,
   underlineSx,
@@ -16,16 +17,36 @@ export const UnderlineButton = ({
   ...props
 }) => {
 
+  const { ref, inView } = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
+
   const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible')
+    }
+  }, [inView])
 
   return (
     <MotionBox
       data-comp={UnderlineButton.displayName}
+      ref={ref}
       sx={{ ...defaultButtonSx, ...buttonSx }}
       onClick={() => {
-        to.startsWith('http')
-          ? window.open(to, '_blank')
-          : scrollTo(to)
+        if (onClick) {
+          onClick();
+          return;
+        }
+        if (!to) return;
+        typeof to === 'object'
+          ? to.current.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            })
+          : window.open(to, '_blank')
       }}
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}

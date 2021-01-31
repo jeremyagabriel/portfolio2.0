@@ -31,12 +31,29 @@ export const MotionText = memo(({
           : 'hidden'
         : animate
       }
-      variants={variants}
+      variants={ variants === 'default'
+        ? defaultVariant
+        : variants
+      }
       {...props}
     >
       { children }
     </Component>
   );
 })
+
+const defaultVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 700,
+      damping: 30,
+      duration: 0.8,
+    },
+  }
+};
 
 MotionText.displayName = 'MotionText';

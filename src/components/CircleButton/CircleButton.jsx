@@ -10,7 +10,8 @@ import { Flex, MotionBox } from '../Components';
 export const CircleButton = memo(({
   text,
   icon,
-  to = '#',
+  to = null,
+  onClick,
   circleSx,
   textSx,
   iconSx,
@@ -30,12 +31,17 @@ export const CircleButton = memo(({
         ...circleSx,
       }}
       onClick={() => {
-        // to.startsWith('http')
-        //   ? window.open(to, '_blank')
-        //   : scrollTo(to)
-        typeof to === 'string' && to.startsWith('http')
-          ? window.open(to, '_blank')
-          : to.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        if (onClick) {
+          onClick();
+          return;
+        }
+        if (!to) return;
+        typeof to === 'object'
+          ? to.current.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            })
+          : window.open(to, '_blank')
       }}
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}

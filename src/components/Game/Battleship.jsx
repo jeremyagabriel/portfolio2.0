@@ -319,9 +319,9 @@ class Battleship extends Component{
       }
     }
     this.setState({ grid, twoH, twoV, threeH, threeV, fourH, fourV, shipIndexes, outterIndsOnly, squares})
-    console.log("shipIndexes:",shipIndexes)
-    console.log("outterIndsOnly:",outterIndsOnly)
-    console.log(outterIndsOnly.some(i=>this.state.shipIndexes.includes(i)))
+    // console.log("shipIndexes:",shipIndexes)
+    // console.log("outterIndsOnly:",outterIndsOnly)
+    // console.log(outterIndsOnly.some(i=>this.state.shipIndexes.includes(i)))
   }
 
   handleClick = (index) => {
@@ -430,9 +430,9 @@ class Battleship extends Component{
       fourHCounter: 4,
       fourHSunk: false,
     })
-    console.log("shipIndexes before Mount:", this.state.shipIndexes)
-    console.log("torpIndexes before Mount:", this.state.torpIndexes)
-    console.log("hitCounter before Mount:", this.state.hitCounter)
+    // console.log("shipIndexes before Mount:", this.state.shipIndexes)
+    // console.log("torpIndexes before Mount:", this.state.torpIndexes)
+    // console.log("hitCounter before Mount:", this.state.hitCounter)
     this.componentDidMount()
   }
 

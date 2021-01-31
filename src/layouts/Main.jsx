@@ -13,6 +13,7 @@ export const Main = ({ children }) => {
         display='flex'
         flexDirection='column'
         height='100vh'
+        overflow='hidden'
       >
         <Header />
 

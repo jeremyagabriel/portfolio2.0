@@ -11,6 +11,13 @@ export const Buttons = ({
   ...props
 }) => {
 
+  const buttons = [
+    { text: 'About', to: aboutRef },
+    { text: 'Work', to: projectsRef },
+    { icon: FaGithub, to: 'https://github.com/jeremyagabriel'},
+    { icon: FaLinkedin, to: 'https://www.linkedin.com/in/jeremyagabriel'}
+  ];
+
   return (
     <MotionBox
       data-comp={Buttons.displayName}
@@ -20,26 +27,15 @@ export const Buttons = ({
       variants={motionVariant}
       {...props}
     >
-      <CircleButton
-        text='About'
-        to={aboutRef}
-        {...circleSx}
-      />
-      <CircleButton
-        text='Work'
-        to={projectsRef}
-        {...circleSx}
-      />
-      <CircleButton
-        icon={FaGithub}
-        to={'https://github.com/jeremyagabriel'}
-        {...circleSx}
-      />
-      <CircleButton
-        icon={FaLinkedin}
-        to={'https://www.linkedin.com/in/jeremyagabriel'}
-        {...circleSx}
-      />
+      { buttons.map((button, index) => (
+        <CircleButton
+          key={index}
+          text={button.text}
+          icon={button.icon}
+          to={button.to}
+          {...circleSx}
+        />
+      ))}
     </MotionBox>
   )
 }
