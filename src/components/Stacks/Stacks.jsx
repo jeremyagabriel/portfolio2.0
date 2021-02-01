@@ -28,6 +28,7 @@ export const Stacks = () => {
         justifyContent: 'center',
         width: '100%',
         pt: [2],
+        px: [1, 2, 3],
       }}
     >
       <Heading

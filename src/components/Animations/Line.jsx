@@ -4,7 +4,14 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 
-export const Line = ({ styles, x }) => {
+export const Line = ({
+  styles,
+  duration = 0.3,
+  x = '-105%',
+  color = 'secondary',
+  variants,
+  animate,
+}) => {
 
   const { ref, inView } = useInView({
     threshold: 1,
@@ -29,21 +36,23 @@ export const Line = ({ styles, x }) => {
     >
       <motion.div
         initial='hidden'
-        animate={inView && 'visible'}
-        variants={{
-          hidden: {
-            x: x || '-105%'
-          },
-          visible: {
-            x: 0,
-            transition: {
-              duration: 0.3,
+        animate={animate || (inView && 'visible')}
+        variants={variants ||
+          {
+            hidden: {
+              x
             },
+            visible: {
+              x: 0,
+              transition: {
+                duration,
+              },
+            }
           }
-        }}
+        }
         sx={{
           position: 'absolute',
-          bg: 'secondary',
+          bg: color,
           width: '100%',
           height: '100%',
         }}

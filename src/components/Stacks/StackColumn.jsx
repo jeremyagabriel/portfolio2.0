@@ -20,7 +20,6 @@ export const StackColumn = ({ stacks, styles }) => {
             variant='text.h2'
             sx={{
               mb: [2, 3],
-              color: '#140000',
             }}
             animateOnLoad={true}
             variants='default'
@@ -62,7 +61,6 @@ export const StackColumn = ({ stacks, styles }) => {
                     sx={{
                       textAlign: 'center',
                       lineHeight: '1.1em',
-                      // color: 'tertiary',
                     }}
                   >
                     { stack.label }

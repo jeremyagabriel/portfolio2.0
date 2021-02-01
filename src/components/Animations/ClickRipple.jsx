@@ -18,50 +18,53 @@ export const ClickRipple = ({
         animate={controls}
         variants={{
           hidden: {
-            background: 'transparent',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
+            transition: {
+              duration: 0,
+            }
           },
           visible: {
-            // background: '#7A0003',
             background: '#000000',
-            transform: 'scale(3000)',
+            transform,
             transition: {
               duration,
               delay: 0,
             }
           }
         }}
+        style={{ background: '#000000' }}
         sx={cirlceSx(mouseClick)}
       />
       <MotionBox
         animate={controls}
         variants={{
           hidden: {
-            background: 'transparent',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
+            transition: {
+              duration: 0,
+            }
           },
           visible: {
-            // background: '#290001',
-            background: '#ffffff',
             transform,
             transition: {
               duration,
-              delay: 0.1,
+              delay: 0.05,
             }
           }
         }}
+        style={{ background: '#ffffff' }}
         sx={cirlceSx(mouseClick)}
       />
       <MotionBox
         animate={controls}
         variants={{
           hidden: {
-            background: 'transparent',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
+            transition: {
+              duration: 0,
+            }
           },
           visible: {
-            // background: '#7A0003',
-            background: '#000000',
             transform,
             transition: {
               duration,
@@ -69,31 +72,34 @@ export const ClickRipple = ({
             }
           }
         }}
+        style={{ background: '#000000' }}
         sx={cirlceSx(mouseClick)}
       />
       <MotionBox
         animate={controls}
         variants={{
           hidden: {
-            background: 'transparent',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
+            transition: {
+              duration: 0,
+            }
           },
           visible: {
-            background: '#F65054',
             transform,
             transition: {
               duration,
-              delay: 0.3,
+              delay: 0.6,
             }
           }
         }}
+        style={{ background: '#F65054' }}
         sx={cirlceSx(mouseClick)}
       />
     </Box>
   )
 }
 
-const transform = 'scale(3000)';
+const transform = 'scale(4000)';
 
 const duration = 1.5;
 
@@ -109,8 +115,8 @@ const boxSx = {
 };
 
 const cirlceSx = mouseClick => ({
-  width: '3px',
-  height: '3px',
+  width: '1px',
+  height: '1px',
   borderRadius: '50%',
   position: 'absolute',
   top: mouseClick.y,

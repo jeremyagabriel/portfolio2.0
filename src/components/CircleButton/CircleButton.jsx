@@ -1,9 +1,7 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from 'theme-ui';
 import React, { memo } from 'react';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 import { useAnimation } from 'framer-motion';
-import { navigate } from 'gatsby';
 import { Flex, MotionBox } from '../Components';
 
 
@@ -15,6 +13,7 @@ export const CircleButton = memo(({
   circleSx,
   textSx,
   iconSx,
+  animate,
   color = 'white',
   side = 'left',
   ...props
@@ -46,14 +45,14 @@ export const CircleButton = memo(({
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}
       initial='hidden'
-      animate={controls}
+      animate={animate || controls}
       variants={circleVariant}
       {...props}
     >
       <MotionBox
         sx={bgSx(color)}
         initial='hidden'
-        animate={controls}
+        animate={animate || controls}
         variants={bgVariant}
       />
       <MotionBox
@@ -63,7 +62,7 @@ export const CircleButton = memo(({
           position: 'relative'
         }}
         initial='hidden'
-        animate={controls}
+        animate={animate || controls}
         variants={motionVariant(side)}
       >
         { text

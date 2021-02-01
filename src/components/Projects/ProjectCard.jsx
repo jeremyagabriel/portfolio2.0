@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Text, Box } from 'theme-ui';
+import { jsx, Text, Box, Link } from 'theme-ui';
 import React from 'react';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import { CircleButton } from '../CircleButton';
@@ -55,7 +55,8 @@ export const ProjectCard = ({ project }) => {
 
           <Text
             sx={{
-              mb: [2]
+              mb: [2],
+              fontStyle: 'italic',
             }}
           >
             Built: { project?.completionDate }
@@ -66,8 +67,16 @@ export const ProjectCard = ({ project }) => {
           variants='default'
           animateOnLoad={true}
         >
-          <Text sx={{ mb: [1] }}>
-            { project?.body?.body }
+          <Text sx={{ mb: [3] }}>
+            { project?.body?.body } {' '}
+            <Link sx={linkSx} href={project.repoUrl} target='_blank'>
+              View Repo
+            </Link>
+            { project.siteUrl &&
+              <Link sx={linkSx} href={project.siteUrl} target='_blank'>
+                {' '}| View App
+              </Link>
+            }
           </Text>
 
           <Flex
@@ -86,33 +95,6 @@ export const ProjectCard = ({ project }) => {
             ))}
           </Flex>
         </MotionBox>
-
-        <MotionBox
-          variants='default'
-          animateOnLoad={true}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <Text
-            variant='text.h4'
-            sx={{ mr: [2] }}
-          >
-            View Repo
-          </Text>
-          <CircleButton
-            icon={HiOutlineArrowRight}
-            to={project?.repoUrl}
-            side='left'
-            circleSx={{
-              width: '50px',
-              height: '50px',
-              borderColor: 'secondary',
-            }}
-            iconSx={{ color: 'secondary', fontSize: '24px' }}
-          />
-        </MotionBox>
       </Box>
     </Box>
   );
@@ -123,7 +105,8 @@ const cardSx = {
   flexDirection: 'column',
   width: '500px',
   maxWidth: '100vw',
-  m: [1, 2, 3],
+  my: [3],
+  mx: [0, 0, 3],
 };
 
 const tagSx = {
@@ -131,9 +114,15 @@ const tagSx = {
   borderColor: 'primary',
   color: 'primary',
   p: '4px',
-  mr: 2,
-  mb: 2,
-  fontWeight: 'regular',
+  mr: 1,
+  mb: 1,
+  fontWeight: 'medium',
+};
+
+const linkSx = {
+  textDecoration: 'none',
+  fontWeight: 'medium',
+  color: 'black',
 };
 
 

@@ -33,7 +33,7 @@ export const Footer = ({ ...props }) => {
     setTimeout(() => {
       setIsAnimating(false);
       controls.start('hidden');
-    }, 1500)
+    }, 2000)
   };
 
   return (

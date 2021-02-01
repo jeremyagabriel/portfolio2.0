@@ -1,19 +1,13 @@
 /** @jsx jsx */
-import { jsx, Text, Box } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { useState, useRef, useEffect } from 'react';
-import { motion, useAnimation, useViewportScroll, useTransform, useMotionValue } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Lazy, Navigation, Pagination } from 'swiper';
 import { useSetRecoilState } from 'recoil';
-import { HiOutlineArrowRight } from 'react-icons/hi';
-import { useInView } from 'react-intersection-observer';
-import { Flex, MotionBox, MotionText, Image, FlexCol } from '../Components';
-import { CircleButton } from '../CircleButton';
+import { HiOutlineArrowDown } from 'react-icons/hi';
+import { Flex, FlexCol } from '../Components';
+import { CtaButton } from '../CtaButton';
 import { Heading } from '../Heading';
 import { ProjectCard } from './ProjectCard';
 import { projectsAtom } from '../../lib/atoms';
-
-SwiperCore.use([Navigation, Pagination, Lazy]);
 
 
 export const Projects = ({ projects }) => {
@@ -62,54 +56,16 @@ export const Projects = ({ projects }) => {
       </Flex>
 
       { !isExpanded &&
-        <MotionBox
-          variants='default'
-          animateOnLoad={true}
-          sx={{ mt: [5] }}
-        >
-          <CircleButton
-            text='See More'
-            circleSx={{
-              // width: '50px',
-              // height: '50px',
-              borderColor: 'secondary',
-            }}
-            textSx={{
-              color: 'secondary',
-              fontSize: '18px',
-            }}
-            onClick={() => setIsExpanded(true)}
-          />
-        </MotionBox>
+        <CtaButton
+          icon={HiOutlineArrowDown}
+          ctaText='See More Work'
+          side='top'
+          onClick={() => setIsExpanded(true)}
+          styles={{ mt: [5] }}
+        />
       }
     </FlexCol>
   );
 }
 
-const SwiperCss = {
-  // width: '100%',
-  // height: '100%',
-  width: '100%',
-  height: '600px'
-};
-
-const elementTop = 620;
-
 Projects.displayName = 'ProjectsSection';
-
-{/* <Swiper
-spaceBetween={50}
-slidesPerView={2}
-navigation
-lazy
-pagination={{ clickable: true }}
-css={SwiperCss}
->
-{ projects?.map((project, index) => (
-  <SwiperSlide key={index}>
-    <ProjectCard
-      project={project}
-    />
-  </SwiperSlide>
-))}
-</Swiper> */}

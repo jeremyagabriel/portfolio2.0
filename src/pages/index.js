@@ -36,7 +36,7 @@ const containerSx = {
   alignItems: 'center',
   // minHeight: '1000px',
   bg: 'white',
-  px: [1, 2, 3],
+  // px: [1, 2, 3],
   pt: [4, null, null, 15],
   pb: [8, 10, 15],
 };
