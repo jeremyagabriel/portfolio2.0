@@ -22,8 +22,8 @@ export const ClickRipple = ({
             transform: 'scale(1)'
           },
           visible: {
-            background: '#7A0003',
-            // background: '#000000',
+            // background: '#7A0003',
+            background: '#000000',
             transform: 'scale(3000)',
             transition: {
               duration,
@@ -41,8 +41,8 @@ export const ClickRipple = ({
             transform: 'scale(1)'
           },
           visible: {
-            background: '#290001',
-            // background: '#ffffff',
+            // background: '#290001',
+            background: '#ffffff',
             transform,
             transition: {
               duration,
@@ -60,8 +60,8 @@ export const ClickRipple = ({
             transform: 'scale(1)'
           },
           visible: {
-            background: '#7A0003',
-            // background: '#000000',
+            // background: '#7A0003',
+            background: '#000000',
             transform,
             transition: {
               duration,
@@ -80,7 +80,6 @@ export const ClickRipple = ({
           },
           visible: {
             background: '#F65054',
-            // background: '#F65054',
             transform,
             transition: {
               duration,

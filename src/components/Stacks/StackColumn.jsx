@@ -55,7 +55,7 @@ export const StackColumn = ({ stacks, styles }) => {
                     sx={{
                       width: '86px',
                       height: '86px',
-                      // filter: 'invert(1)'
+                      filter: 'invert(1)'
                     }}
                   />
                   <Text
