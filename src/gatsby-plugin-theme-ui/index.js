@@ -16,8 +16,9 @@ export default {
     black: '#000000',
     primary: '#F65054',
     // secondary: '#212169',
-    secondary: '#290001',
+    // secondary: '#290001',
     // secondary: '#000000',
+    secondary: '#140000',
     tertiary: '#7A0003',
   },
   breakpoints: [

@@ -42,7 +42,8 @@ export const Heading = ({
             sx={{
               color: 'primary',
               letterSpacing: '0.05em',
-              mr: [3]
+              mr: [3],
+              color: 'tertiary',
             }}
           >
             {subheading}
@@ -62,7 +63,8 @@ export const Heading = ({
             sx={{
               height: '2px',
               width: ['30px', '60px'],
-              bg: 'primary'
+              // bg: 'primary'
+              bg: 'tertiary',
             }}
           />
         </Flex>

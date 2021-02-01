@@ -96,7 +96,7 @@ export const ClickRipple = ({
 
 const transform = 'scale(3000)';
 
-const duration = 1;
+const duration = 1.5;
 
 const boxSx = {
   position: 'absolute',

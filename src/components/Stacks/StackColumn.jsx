@@ -20,7 +20,7 @@ export const StackColumn = ({ stacks, styles }) => {
             variant='text.h2'
             sx={{
               mb: [2, 3],
-              // color: 'primary',
+              color: '#140000',
             }}
             animateOnLoad={true}
             variants='default'
