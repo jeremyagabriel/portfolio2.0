@@ -61,11 +61,12 @@ export const Projects = ({ projects }) => {
         ))}
       </Flex>
 
-      <MotionBox
-        variants='default'
-        animateOnLoad={true}
-      >
-        { !isExpanded &&
+      { !isExpanded &&
+        <MotionBox
+          variants='default'
+          animateOnLoad={true}
+          sx={{ mt: [5] }}
+        >
           <CircleButton
             text='See More'
             circleSx={{
@@ -75,12 +76,12 @@ export const Projects = ({ projects }) => {
             }}
             textSx={{
               color: 'black',
-              fontSize: '18px'
+              fontSize: '18px',
             }}
             onClick={() => setIsExpanded(true)}
           />
-        }
-      </MotionBox>
+        </MotionBox>
+      }
     </FlexCol>
   );
 }
