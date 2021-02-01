@@ -43,7 +43,7 @@ export const Line = ({ styles, x }) => {
         }}
         sx={{
           position: 'absolute',
-          bg: 'black',
+          bg: 'secondary',
           width: '100%',
           height: '100%',
         }}

@@ -1,18 +1,33 @@
-import HTMLLogo from '../assets/images/HTML-Logo.png';
-import CSSLogo from '../assets/images/CSS-Logo.png';
-import JSLogo from '../assets/images/JS-Logo.png';
-import RubyLogo from '../assets/images/Ruby-Logo.png';
-import SQLLogo from '../assets/images/SQL-Logo.png';
-import ReactLogo from '../assets/images/React-Logo.png';
-import ReduxLogo from '../assets/images/Redux-Logo.png';
-import GraphqlLogo from '../assets/images/Graphql-Logo.png';
-import RubyOnRailsLogo from '../assets/images/RubyOnRails-Logo.png';
-import NodejsLogo from '../assets/images/Nodejs-Logo.png';
-import MongoDBLogo from '../assets/images/MongoDB-Logo.png';
-import PostgresqlLogo from '../assets/images/Postgresql-Logo.png';
-import PhotoshopLogo from '../assets/images/Photoshop-Logo.png';
-import IllustratorLogo from '../assets/images/Illustrator-Logo.png';
-import DigitalIllustrationsLogo from '../assets/images/Digital-Illustrations-Logo.png';
+// import HTMLLogo from '../assets/images/HTML-Logo-dark.png';
+// import CSSLogo from '../assets/images/CSS-Logo.png';
+// import JSLogo from '../assets/images/JS-Logo.png';
+// import RubyLogo from '../assets/images/Ruby-Logo.png';
+// import SQLLogo from '../assets/images/SQL-Logo.png';
+// import ReactLogo from '../assets/images/React-Logo.png';
+// import ReduxLogo from '../assets/images/Redux-Logo.png';
+// import GraphqlLogo from '../assets/images/Graphql-Logo.png';
+// import RubyOnRailsLogo from '../assets/images/RubyOnRails-Logo.png';
+// import NodejsLogo from '../assets/images/Nodejs-Logo.png';
+// import MongoDBLogo from '../assets/images/MongoDB-Logo.png';
+// import PostgresqlLogo from '../assets/images/Postgresql-Logo.png';
+// import PhotoshopLogo from '../assets/images/Photoshop-Logo.png';
+// import IllustratorLogo from '../assets/images/Illustrator-Logo.png';
+// import DigitalIllustrationsLogo from '../assets/images/Digital-Illustrations-Logo.png';
+import HTMLLogo from '../assets/images/HTML-Logo-dark.png';
+import CSSLogo from '../assets/images/CSS-Logo-dark.png';
+import JSLogo from '../assets/images/JS-Logo-dark.png';
+import RubyLogo from '../assets/images/Ruby-Logo-dark.png';
+import SQLLogo from '../assets/images/SQL-Logo-dark.png';
+import ReactLogo from '../assets/images/React-Logo-dark.png';
+import ReduxLogo from '../assets/images/Redux-Logo-dark.png';
+import GraphqlLogo from '../assets/images/Graphql-Logo-dark.png';
+import RubyOnRailsLogo from '../assets/images/RubyOnRails-Logo-dark.png';
+import NodejsLogo from '../assets/images/Nodejs-Logo-dark.png';
+import MongoDBLogo from '../assets/images/MongoDB-Logo-dark.png';
+import PostgresqlLogo from '../assets/images/Postgresql-Logo-dark.png';
+import PhotoshopLogo from '../assets/images/Photoshop-Logo-dark.png';
+import IllustratorLogo from '../assets/images/Illustrator-Logo-dark.png';
+import DigitalIllustrationsLogo from '../assets/images/Digital-Illustrations-Logo-dark.png';
 
 
 export const stacks = [

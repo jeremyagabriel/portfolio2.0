@@ -127,9 +127,13 @@ const cardSx = {
 };
 
 const tagSx = {
+  border: '1px solid',
+  borderColor: 'primary',
   color: 'primary',
+  p: '4px',
   mr: 2,
   mb: 2,
+  fontWeight: 'regular',
 };
 
 

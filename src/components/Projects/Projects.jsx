@@ -72,10 +72,10 @@ export const Projects = ({ projects }) => {
             circleSx={{
               // width: '50px',
               // height: '50px',
-              borderColor: 'black',
+              borderColor: 'secondary',
             }}
             textSx={{
-              color: 'black',
+              color: 'secondary',
               fontSize: '18px',
             }}
             onClick={() => setIsExpanded(true)}

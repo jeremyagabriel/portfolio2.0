@@ -74,7 +74,7 @@ export const Footer = ({ ...props }) => {
           // color: 'rgba(255,255,255,0.4)',
           color: 'white',
           p: [2],
-          bg: 'black',
+          bg: 'secondary',
           position: 'absolute',
           top: '-10px',
           left: [5],

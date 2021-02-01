@@ -20,6 +20,7 @@ export const StackColumn = ({ stacks, styles }) => {
             variant='text.h2'
             sx={{
               mb: [2, 3],
+              // color: 'primary',
             }}
             animateOnLoad={true}
             variants='default'
@@ -54,13 +55,14 @@ export const StackColumn = ({ stacks, styles }) => {
                     sx={{
                       width: '86px',
                       height: '86px',
-                      filter: 'invert(1)'
+                      // filter: 'invert(1)'
                     }}
                   />
                   <Text
                     sx={{
                       textAlign: 'center',
                       lineHeight: '1.1em',
+                      // color: 'tertiary',
                     }}
                   >
                     { stack.label }

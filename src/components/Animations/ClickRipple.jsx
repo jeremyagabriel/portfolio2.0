@@ -18,11 +18,12 @@ export const ClickRipple = ({
         animate={controls}
         variants={{
           hidden: {
-            background: '#F65054',
+            background: 'transparent',
             transform: 'scale(1)'
           },
           visible: {
-            background: 'black',
+            background: '#7A0003',
+            // background: '#000000',
             transform: 'scale(3000)',
             transition: {
               duration,
@@ -36,12 +37,13 @@ export const ClickRipple = ({
         animate={controls}
         variants={{
           hidden: {
-            background: '#F65054',
+            background: 'transparent',
             transform: 'scale(1)'
           },
           visible: {
-            background: 'white',
-            transform: 'scale(2000)',
+            background: '#290001',
+            // background: '#ffffff',
+            transform,
             transition: {
               duration,
               delay: 0.1,
@@ -54,12 +56,13 @@ export const ClickRipple = ({
         animate={controls}
         variants={{
           hidden: {
-            background: '#F65054',
+            background: 'transparent',
             transform: 'scale(1)'
           },
           visible: {
-            background: 'black',
-            transform: 'scale(2000)',
+            background: '#7A0003',
+            // background: '#000000',
+            transform,
             transition: {
               duration,
               delay: 0.2,
@@ -72,12 +75,13 @@ export const ClickRipple = ({
         animate={controls}
         variants={{
           hidden: {
-            background: '#F65054',
+            background: 'transparent',
             transform: 'scale(1)'
           },
           visible: {
             background: '#F65054',
-            transform: 'scale(2000)',
+            // background: '#F65054',
+            transform,
             transition: {
               duration,
               delay: 0.3,
@@ -90,7 +94,9 @@ export const ClickRipple = ({
   )
 }
 
-const duration = 1.2;
+const transform = 'scale(3000)';
+
+const duration = 1;
 
 const boxSx = {
   position: 'absolute',
@@ -104,8 +110,8 @@ const boxSx = {
 };
 
 const cirlceSx = mouseClick => ({
-  width: '2px',
-  height: '2px',
+  width: '3px',
+  height: '3px',
   borderRadius: '50%',
   position: 'absolute',
   top: mouseClick.y,
