@@ -61,7 +61,7 @@ export const Projects = ({ projects }) => {
           ctaText='See More Work'
           side='top'
           onClick={() => setIsExpanded(true)}
-          styles={{ mt: [5] }}
+          styles={{ mt: [0, 5] }}
         />
       }
     </FlexCol>

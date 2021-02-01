@@ -6,6 +6,7 @@ import { useAnimation, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { HiOutlineArrowDown } from 'react-icons/hi';
 import { Flex, FlexCol, MotionBox, Motion } from '../Components';
+import { Menu } from '../Menu';
 import { Heading } from './Heading';
 import { Buttons } from './Buttons';
 import { PlayButton } from './PlayButton';
@@ -48,6 +49,16 @@ export const Header = ({ ...props }) => {
     // bg: '#53be54',
     bg: 'white',
   }
+
+  const onMenuClick = () => {
+    if (!menuOpen) {
+      setMenuOpen(true);
+      controls.start('visible')
+    } else {
+      setMenuOpen(false);
+      controls.start('hidden')
+    }
+  };
 
   return (
     <FlexCol
@@ -102,17 +113,9 @@ export const Header = ({ ...props }) => {
               color: 'white',
               fontSize: '30px',
               cursor: 'pointer',
-              zIndex: 10,
+              // zIndex: 1,
             }}
-            onClick={() => {
-              if (!menuOpen) {
-                setMenuOpen(true);
-                controls.start('visible')
-              } else {
-                setMenuOpen(false);
-                controls.start('hidden')
-              }
-            }}
+            onClick={onMenuClick}
           />
         </Flex>
       </Flex>
@@ -192,6 +195,16 @@ export const Header = ({ ...props }) => {
         <PlayButton />
         <GameContainer />
       </MotionBox> */}
+      { menuOpen &&
+        <Menu
+          menuOpen={menuOpen}
+          closeMenu={() => setMenuOpen(false)}
+          onMenuClick={onMenuClick}
+          contactRef={contactRef}
+          aboutRef={aboutRef}
+          projectsRef={projectsRef}
+        />
+      }
     </FlexCol>
   )
 }

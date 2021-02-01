@@ -99,7 +99,7 @@ export const ClickRipple = ({
   )
 }
 
-const transform = 'scale(4000)';
+const transform = 'scale(5000)';
 
 const duration = 1.5;
 
