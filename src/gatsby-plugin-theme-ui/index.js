@@ -9,14 +9,12 @@ const headingSx = {
 
 export default {
   colors: {
-    // text: '#38465F',
     text: '#505050',
     background: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
     primary: '#F65054',
     secondary: '#000000',
-    tertiary: '#7A0003',
   },
   breakpoints: [
     "480px",

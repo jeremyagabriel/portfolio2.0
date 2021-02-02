@@ -1,12 +1,9 @@
 /** @jsx jsx */
-import { jsx, Text, Box } from 'theme-ui';
-import { useState, useRef, useEffect } from 'react';
-import { useAnimation, AnimatePresence } from 'framer-motion';
+import { jsx  } from 'theme-ui';
+import { useRef, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
-import { HiOutlineArrowDown } from 'react-icons/hi';
-import { Flex, FlexCol, MotionBox, MotionText } from '../Components';
-import { CircleButton } from '../CircleButton';
-import { UnderlineButton } from '../UnderlineButton';
+import { MotionBox, MotionText } from '../Components';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 
@@ -56,10 +53,18 @@ export const Menu = ({
       data-comp={Menu.displayName}
       id='menu'
       sx={menuSx}
-      animate='show'
+      animate={menuOpen ? 'visible' : 'hidden'}
       variants={{
-        show: {
+        hidden: {
+          y: '100%',
           transition: {
+            duration: 0.5
+          }
+        },
+        visible: {
+          y: 0,
+          transition: {
+            duration: 0.5,
             staggerChildren: 0.5
           }
         }
@@ -69,12 +74,13 @@ export const Menu = ({
       { links.map((link, index) => (
         <MotionText
           variants='default'
+          delay={0.2}
           animateOnLoad={true}
           key={index}
           variant='text.h2'
           sx={{
             color: 'white',
-            mb: [index === links.length - 1 ? 0 : 7, 0],
+            mb: index === links.length - 1 ? 0 : 7,
             cursor: 'pointer',
           }}
           onClick={() => {
@@ -111,8 +117,6 @@ export const Menu = ({
 const menuSx = {
   display: ['flex', null, 'none'],
   flexDirection: 'column',
-  justifyContent: ['flex-start', 'space-around'],
-  // justifyContent: 'center',
   alignItems: 'center',
   position: 'absolute',
   top: 0,
@@ -121,8 +125,7 @@ const menuSx = {
   width: '100vw',
   bg: 'secondary',
   pb: '15vh',
-  pt: [8, 5],
-  // zIndex: 5,
+  pt: [8],
 };
 
 Menu.displayName = 'Menu';

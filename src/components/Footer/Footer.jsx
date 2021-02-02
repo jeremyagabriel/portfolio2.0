@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box } from 'theme-ui';
+import { jsx, Box, Text } from 'theme-ui';
 import { useRef, useEffect, useState, } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { FlexCol, MotionText } from '../Components';
@@ -51,6 +51,20 @@ export const Footer = ({ ...props }) => {
 
       <Heading />
 
+      <Text
+        variant='text.h2'
+        sx={{
+          fontSize: [5, 6],
+          position: 'absolute',
+          bottom: [3, 4, 5],
+          left: [3, 5],
+          userSelect: 'none',
+          color: 'primary'
+        }}
+      >
+        Copied!
+      </Text>
+
       <Box
         onClick={onMouseClick}
         sx={{
@@ -71,13 +85,12 @@ export const Footer = ({ ...props }) => {
         animateOnLoad={true}
         sx={{
           fontSize: [2, 4],
-          // color: 'rgba(255,255,255,0.4)',
           color: 'white',
           p: [2],
           bg: 'secondary',
           position: 'absolute',
           top: '-10px',
-          left: [5],
+          left: [3, 5],
         }}
       >
         Click Below To Copy Email
@@ -89,7 +102,7 @@ export const Footer = ({ ...props }) => {
 const footerSx = {
   justifyContent: 'center',
   alignItems: 'flex-start',
-  height: ['322px', '414px', null , '506px', '600px'],
+  height: ['350px', '440px', null , '506px', '600px'],
   bg: 'primary',
 };
 

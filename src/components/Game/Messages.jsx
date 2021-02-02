@@ -1,18 +1,19 @@
+/** @jsx jsx */
+import { jsx, Text, Box } from 'theme-ui';
 import React from 'react';
-import './Battleship.css';
 
 const Messages = props => {
   let message;
   if (props.hitCounter === 0) {
-    message = <span style={{fontWeight: 800}} key="winMessage">You found all the doggos!</span>;
+    message = <Text sx={{}} key="winMessage">You found all the doggos!</Text>;
   } else if (props.torpCounter === 0 && props.hitCounter !== 0) {
-    message = <span key="loseMessage">No more dog treats - try again!</span>;
+    message = <Text key="loseMessage">No more dog treats - try again!</Text>;
   } else if (props.sunk) {
-    message = <span style={{fontWeight: 800}} key="foundFamilyMessage">You found a whole doggo family!</span>;
+    message = <Text sx={{}} key="foundFamilyMessage">You found a whole doggo family!</Text>;
   } else if (props.hit) {
-    message = <span key="foundMessage">You found a doggo!</span>;
+    message = <Text key="foundMessage">You found a doggo!</Text>;
   } else if (props.miss) {
-    message = <span style={{fontWeight: 300}} key="missMessage">You wasted a treat!</span>;
+    message = <Text sx={{}} key="missMessage">You wasted a treat!</Text>;
   }
   return(
     <>

@@ -12,6 +12,7 @@ export const MotionText = memo(({
   animate,
   variants = {},
   animateOnLoad = false,
+  delay,
   ...props
 }) => {
 
@@ -32,7 +33,7 @@ export const MotionText = memo(({
         : animate
       }
       variants={ variants === 'default'
-        ? defaultVariant
+        ? defaultVariant(delay)
         : variants
       }
       {...props}
@@ -42,18 +43,19 @@ export const MotionText = memo(({
   );
 })
 
-const defaultVariant = {
+const defaultVariant = delay => ({
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
+      delay,
       type: "spring",
       stiffness: 700,
       damping: 30,
       duration: 0.8,
     },
   }
-};
+});
 
 MotionText.displayName = 'MotionText';

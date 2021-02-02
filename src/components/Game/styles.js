@@ -162,12 +162,12 @@ export const styles = {
       margin: '1.665vw 0px',
       fontSize: '2.67vw',
     },
-    // reset: {
-    //   fontSize: '2.67vw',
-    //   letterSpacing: '0.153vw',
-    //   width: '20vw',
-    //   height: '4vw',
-    // },
+    reset: {
+      fontSize: '2.67vw',
+      letterSpacing: '0.153vw',
+      width: '20vw',
+      height: '4vw',
+    },
     photos: {
       width: '8.33vw',
       height: '8.33vw',
@@ -178,4 +178,4 @@ export const styles = {
       fontSize: '3.85vw',
     },
   },
-},
+}

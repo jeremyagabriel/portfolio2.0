@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from 'theme-ui';
 import React, { Component } from 'react';
+import { Flex, FlexCol } from '../Components';
 import Square from './Square';
 import Messages from './Messages';
 import Grass from '../../assets/images/grass.jpg';
@@ -14,7 +15,7 @@ import DogLarge from '../../assets/images/dog-l.jpg';
 import DogLargeFound from '../../assets/images/dog-l-found.jpg';
 import DogLargeGray from '../../assets/images/dog-l-gray.jpg';
 import Treat from '../../assets/images/treat.jpg';
-import './Battleship.css';
+import { styles } from './styles';
 
 class Battleship extends Component{
   constructor(props) {
@@ -450,40 +451,98 @@ class Battleship extends Component{
       )
     })
     return(
-      <>
-        <Box id="body">
-          <Text
-            variant='text.h2'
-            sx={{ color: 'white' }}
-          >
-            Doggoship
-          </Text>
-          {/* <Box id="subTitleContainer">
-            <p id="subTitle">Can you find all the dog families hiding in the grass?<br/> Use the treats to get their attention!</p>
-            <label id="subTitleLabel">Hint: They're in lines of two's, three's and four's</label>
-          </Box> */}
-          <Box id="message">
-            <Messages
-              hitCounter = { this.state.hitCounter}
-              torpCounter = { this.state.torpCounter }
-              hit = { this.state.hit}
-              miss = { this.state.miss }
-              sunk = { this.state.sunk }
-            />
+      <Box sx={styles.body}>
+        <Flex
+          sx={{
+            width: '100%',
+            justifyContent: 'space-between',
+            px: [2],
+            mb: [1],
+          }}
+        >
+          <Box>
+            <Text
+              variant='text.h2'
+              sx={{
+                mb: [1],
+                fontSize: [5, 6],
+              }}
+            >
+              Doggoship
+            </Text>
+            <Box sx={{ height: '26px', display: ['none', 'block'] }}>
+              <Messages
+                hitCounter={ this.state.hitCounter}
+                torpCounter={ this.state.torpCounter }
+                hit={ this.state.hit}
+                miss={ this.state.miss }
+                sunk={ this.state.sunk }
+              />
+            </Box>
           </Box>
-          <Box id="board">
-            { squares }
-          </Box>
-          {/*Footer Area*/}
-          <Box id="battleshipFooter">
-            <p id="stats">Treats Left: <span className={this.state.torpCounter < 11 ? "warningFont" : "regularFont"}>
-            { this.state.torpCounter }
-            </span><br/>
-            Doggos Left To Find: <span id="hitCounter">{ this.state.hitCounter }</span></p>
-            {/* <Link id="reset" onClick = { this.reset }><span>Restart</span></Link> */}
-          </Box>
+
+          <FlexCol sx={{ alignItems: 'flex-start' }}>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                fontColor: 'black'
+              }}
+            >
+              Treats Left: {' '}
+              <span
+                sx={{
+                  fontColor: 'black',
+                  fontWeight: 'bold',
+                  color: this.state.torpCounter < 11
+                    ? 'red' : 'black'
+                }}
+              >
+                { this.state.torpCounter }
+              </span><br/>
+              Doggos Left To Find: {' '}
+              <span sx={{ color: 'black' }}>
+                { this.state.hitCounter }
+              </span>
+            </Text>
+            <Text
+              sx={{
+                fontSize: [0, 1],
+                cursor: 'pointer',
+                textTransform: 'uppercase',
+                py: '4px',
+                px: 1,
+                bg: 'primary',
+                color: 'white',
+                fontWeight: 'medium',
+                mt: [1],
+              }}
+              onClick={this.reset}
+            >
+              Restart
+            </Text>
+          </FlexCol>
+        </Flex>
+
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          width: ['91vw', null, '540px'],
+        }}>
+          { squares }
         </Box>
-      </>
+
+        <Box sx={{ display: ['block', 'none'], mt: [1] }}>
+          <Messages
+            hitCounter={ this.state.hitCounter}
+            torpCounter={ this.state.torpCounter }
+            hit={ this.state.hit}
+            miss={ this.state.miss }
+            sunk={ this.state.sunk }
+          />
+        </Box>
+      </Box>
     )
   }
 }

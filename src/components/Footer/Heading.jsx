@@ -72,7 +72,7 @@ const boxSx = {
   left: 0,
   bottom: 0,
   right: 0,
-  pl: [5]
+  pl: [3, 5]
 };
 
 const textSx = {

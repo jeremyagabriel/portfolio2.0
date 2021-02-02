@@ -53,12 +53,12 @@ export const About = () => {
           Project Manager turned Software Developer, and I'm here to stay, baby. As I live and dream in programming, I'm powered by the love of efficient code through the lens of enjoyable, intuitive design. Let's build some awesome things together, and maybe eat, cry, and celebrate along the way.
         </MotionText>
 
-        <CtaButton
+        {/* <CtaButton
           icon={HiOutlineArrowRight}
           ctaText='Read More'
           onClick={null}
           styles={{ alignSelf: 'flex-start' }}
-        />
+        /> */}
       </FlexCol>
 
       <ParallaxAvatar />

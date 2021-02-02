@@ -1,19 +1,36 @@
 /** @jsx jsx */
 import { jsx, Image, Box } from 'theme-ui';
-import React from 'react';
-import './Battleship.css';
+import { styles } from './styles';
 
-const Square = props => {
+const Square = ({ value, handleClick, index }) => {
+
   const handleClickToApp = () => {
-    props.handleClick(props.index);
+    handleClick(index);
   }
+
   return(
     <Box
-      id="square"
-      onClick = { handleClickToApp}
+      sx={{
+        width: ['8.33vw', null, '50px'],
+        height: ['8.33vw', null, '50px'],
+        border: ['0.1vw solid #419d43', null, '0.5px solid #419d43'],
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '5px',
+      }}
+      onClick={handleClickToApp}
     >
-      <Image src = { props.value } alt = "photos" className = "photos"/>
+      <Image
+        src={value}
+        alt='photos'
+        sx={{
+          width: ['8.33vw', null, '50px'],
+          height: ['8.33vw', null, '50px'],
+        }}
+        />
     </Box>
   );
 }
+
 export default Square;

@@ -3,7 +3,7 @@ import { jsx, Text, Box } from 'theme-ui';
 import { useState, useRef, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useAnimation, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { HiOutlineArrowDown } from 'react-icons/hi';
 import { Flex, FlexCol, MotionBox, Motion } from '../Components';
 import { Menu } from '../Menu';
@@ -19,14 +19,13 @@ import { contactAtom, aboutAtom, projectsAtom } from '../../lib/atoms';
 export const Header = ({ ...props }) => {
 
   const [ menuOpen, setMenuOpen ] = useState(false);
+  const [ gameOpen, setGameOpen ] = useState(false);
+  const [ isResetting, setIsResetting ] = useState(false);
 
   const contactRef = useRecoilValue(contactAtom);
   const aboutRef = useRecoilValue(aboutAtom);
   const projectsRef = useRecoilValue(projectsAtom);
 
-  const [ drag, setDrag ] = useState('x');
-  const [ MenuIcon, setMenuIcon ] = useState(FaBars)
-  const [ variants, setVariants ] = useState(null);
   const [ motionProps, setMotionProps ] = useState({
     initial: false,
     drag: 'x',
@@ -36,19 +35,7 @@ export const Header = ({ ...props }) => {
   const xCoord = useRef(null);
 
   const controls = useAnimation();
-
-  const motionSx = {
-    // display: 'none',
-    position: 'absolute',
-    top: 0,
-    left: '100%',
-    bottom: 0,
-    // right: 0,
-    width: '103%',
-    height: '100%',
-    // bg: '#53be54',
-    bg: 'white',
-  }
+  const gameControls = useAnimation();
 
   const onMenuClick = () => {
     if (!menuOpen) {
@@ -65,24 +52,6 @@ export const Header = ({ ...props }) => {
       data-comp={Header.displayName}
       sx={headerSx}
     >
-      {/* <MotionBox
-        initial='hidden'
-        animate='visible'
-        variants={{
-          hidden: { scale: 1, opacity: 0, transition: { duration: 1.5 } },
-          visible: { scale: 50, opacity: [0, 1, 1, 1], transition: { duration: 1.5 } }
-        }}
-        sx={{
-          bg: 'secondary',
-          width: '100px',
-          height: '100px',
-          borderRadius: '50%',
-          position: 'absolute',
-          top: '40px',
-          right: '40px'
-
-        }}
-      /> */}
       <Flex
         sx={{
           ...navbarSx,
@@ -128,74 +97,77 @@ export const Header = ({ ...props }) => {
         <Heading />
       </Flex>
 
-      <Box sx={{display: ['block', null, 'none']}}>
-        <CircleButton
-          icon={HiOutlineArrowDown}
-          to={aboutRef}
-          side='top'
-          circleSx={{
-            width: '50px',
-            height: '50px',
-            position: 'absolute',
-            mx: 'auto',
-            left: 0,
-            right: 0,
-            bottom: '20vh',
-          }}
-          iconSx={{ fontSize: '24px' }}
-        />
-      </Box>
-
-      {/* <AnimatePresence>
-        <MotionBox
-          key='menu-circle'
-          initial='hidden'
-          animate={controls}
-          exit={{ opacity: 0 }}
-          variants={{
-            hidden: { scale: 1, opacity: [1, 1, 1, 0], transition: { duration: 1 } },
-            visible: { scale: 100, opacity: [0.5, 1, 1, 1], transition: { duration: 1 } }
-          }}
+      <Flex
+        sx={{
+          justifyContent: 'center',
+          display: ['flex', null, 'none']
+        }}
+      >
+        <FaChevronDown
           sx={{
-            display: ['block', null, 'none'],
-            bg: 'secondary',
-            width: '20px',
-            height: '20px',
-            borderRadius: '50%',
             position: 'absolute',
-            top: '30px',
-            right: '30px'
-
+            bottom: ['140px', '110px'],
+            fontSize: '40px',
+            color: '#ea3034',
           }}
         />
-      </AnimatePresence> */}
+      </Flex>
+
       <Box sx={rightTriangle} />
       <Box sx={leftTriangle} />
-      {/* <MotionBox
-        sx={motionSx}
-        {...motionProps}
-        onDrag={(event, info) => {
-          if (xCoord.current === null) xCoord.current = info.point.x
-          if ((xCoord.current - info.point.x) >= 100) {
+
+      { !isResetting &&
+        <MotionBox
+          sx={sliderSx}
+          {...motionProps}
+          onDrag={(event, info) => {
+            if (xCoord.current === null) xCoord.current = info.point.x
+            if ((xCoord.current - info.point.x) >= 100) {
+              setMotionProps({
+                drag: false,
+                initial: 'hidden',
+                animate: 'visible',
+                variants: {
+                  hidden: { left: '150%', transition: { duration: 1.3 }},
+                  visible: { left: 0, right: 0, transition: { duration: 1 } }
+                },
+              });
+              setGameOpen(true);
+            }
+          }}
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.4}
+          dragMomentum={false}
+        >
+          <PlayButton />
+        </MotionBox>
+      }
+
+      { gameOpen && !menuOpen &&
+        <GameContainer
+          onClose={() => {
+            setGameOpen(false);
             setMotionProps({
-              drag: false,
-              initial: 'hidden',
-              animate: 'visible',
-              variants: {
-                // hidden: { left: '100%' },
-                visible: { left: 0, right: 0, transition: { duration: 1 } }
-              },
-            })
-          }
-        }}
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.4}
-        dragMomentum={false}
-      >
-        <PlayButton />
-        <GameContainer />
-      </MotionBox> */}
-      { menuOpen &&
+              ...motionProps,
+              animate: 'hidden',
+            });
+            setTimeout(() => {
+              setMotionProps({
+                initial: false,
+                drag: 'x',
+                variants: {},
+                animate: null,
+              });
+              setIsResetting(true);
+            }, 1000);
+            setTimeout(() => {
+              setIsResetting(false);
+            }, 1005);
+          }}
+        />
+      }
+
+      { menuOpen && !gameOpen &&
         <Menu
           menuOpen={menuOpen}
           closeMenu={() => setMenuOpen(false)}
@@ -253,8 +225,14 @@ const leftTriangle = {
   zIndex: 2,
 };
 
+const sliderSx = {
+  position: 'absolute',
+  top: 0,
+  left: '100%',
+  bottom: 0,
+  width: '120%',
+  height: '100%',
+  bg: 'white',
+}
+
 Header.displayName = 'Header';
-
-
-
-// dragConstraints={{ right: 0, left: 0 }}

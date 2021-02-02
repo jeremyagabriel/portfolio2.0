@@ -24,7 +24,6 @@ export const ClickRipple = ({
             }
           },
           visible: {
-            background: '#000000',
             transform,
             transition: {
               duration,
@@ -32,28 +31,10 @@ export const ClickRipple = ({
             }
           }
         }}
-        style={{ background: '#000000' }}
-        sx={cirlceSx(mouseClick)}
-      />
-      <MotionBox
-        animate={controls}
-        variants={{
-          hidden: {
-            transform: 'scale(1)',
-            transition: {
-              duration: 0,
-            }
-          },
-          visible: {
-            transform,
-            transition: {
-              duration,
-              delay: 0.05,
-            }
-          }
+        sx={{
+          ...cirlceSx(mouseClick),
+          background: '#ffffff',
         }}
-        style={{ background: '#ffffff' }}
-        sx={cirlceSx(mouseClick)}
       />
       <MotionBox
         animate={controls}
@@ -72,8 +53,10 @@ export const ClickRipple = ({
             }
           }
         }}
-        style={{ background: '#000000' }}
-        sx={cirlceSx(mouseClick)}
+        sx={{
+          ...cirlceSx(mouseClick),
+          background: '#000000',
+        }}
       />
       <MotionBox
         animate={controls}
@@ -92,8 +75,10 @@ export const ClickRipple = ({
             }
           }
         }}
-        style={{ background: '#F65054' }}
-        sx={cirlceSx(mouseClick)}
+        sx={{
+          ...cirlceSx(mouseClick),
+          background: '#F65054',
+        }}
       />
     </Box>
   )
@@ -101,7 +86,7 @@ export const ClickRipple = ({
 
 const transform = 'scale(5000)';
 
-const duration = 1.5;
+const duration = 2;
 
 const boxSx = {
   position: 'absolute',
@@ -117,7 +102,7 @@ const boxSx = {
 const cirlceSx = mouseClick => ({
   width: '1px',
   height: '1px',
-  borderRadius: '50%',
+  // borderRadius: '50%',
   position: 'absolute',
   top: mouseClick.y,
   left: mouseClick.x,
