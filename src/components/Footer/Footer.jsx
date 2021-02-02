@@ -81,8 +81,6 @@ export const Footer = ({ ...props }) => {
 
       <MotionText
         variant='text.h4'
-        variants='default'
-        animateOnLoad={true}
         sx={{
           fontSize: [2, 4],
           color: 'white',
