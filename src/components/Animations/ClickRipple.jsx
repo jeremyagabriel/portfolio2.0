@@ -6,6 +6,7 @@ import { MotionBox } from '../Components';
 export const ClickRipple = ({
   controls,
   mouseClick,
+  browser,
   ...props
 }) => {
 
@@ -76,7 +77,7 @@ export const ClickRipple = ({
           }
         }}
         sx={{
-          ...cirlceSx(mouseClick),
+          ...cirlceSx(mouseClick, browser),
           background: '#F65054',
         }}
       />
@@ -99,10 +100,10 @@ const boxSx = {
   overflow: 'hidden'
 };
 
-const cirlceSx = mouseClick => ({
+const cirlceSx = (mouseClick, browser) => ({
   width: '1px',
   height: '1px',
-  // borderRadius: '50%',
+  borderRadius: browser?.name === 'safari' ? 0 : '50%',
   position: 'absolute',
   top: mouseClick.y,
   left: mouseClick.x,

@@ -7,6 +7,7 @@ import { ClickRipple } from '../Animations';
 import { useAnimation } from 'framer-motion';
 import { contactAtom } from '../../lib/atoms';
 import { FooterHeading } from './FooterHeading';
+const { detect } = require('detect-browser');
 
 
 export const Footer = ({ ...props }) => {
@@ -16,6 +17,7 @@ export const Footer = ({ ...props }) => {
   const ref = useRef(null);
   const [mouseClick, setMouseClick] = useState({ x: -5, y: -5 });
   const [isAnimating, setIsAnimating] = useState(false);
+  const browser = detect();
 
   useEffect(() => {
     setContactRef(ref);
@@ -47,6 +49,7 @@ export const Footer = ({ ...props }) => {
       <ClickRipple
         controls={controls}
         mouseClick={mouseClick}
+        browser={browser}
       />
 
       <FooterHeading />
