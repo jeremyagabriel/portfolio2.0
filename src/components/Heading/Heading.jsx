@@ -28,6 +28,7 @@ export const Heading = ({
       <MotionBox
         variants='default'
         animateOnLoad={true}
+        threshold={0.25}
       >
         <Flex
           sx={{

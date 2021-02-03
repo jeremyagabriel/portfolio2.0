@@ -6,11 +6,15 @@ import { useInView } from 'react-intersection-observer';
 
 export const Line = ({
   styles,
+  motionSx,
   duration = 0.3,
-  x = '-105%',
+  delay,
+  hiddenX = '-105%',
+  visibleX = 0,
   color = 'secondary',
   variants,
   animate,
+  children,
 }) => {
 
   const { ref, inView } = useInView({
@@ -40,12 +44,13 @@ export const Line = ({
         variants={variants ||
           {
             hidden: {
-              x
+              x: hiddenX
             },
             visible: {
-              x: 0,
+              x: visibleX,
               transition: {
                 duration,
+                delay,
               },
             }
           }
@@ -55,8 +60,10 @@ export const Line = ({
           bg: color,
           width: '100%',
           height: '100%',
+          ...motionSx,
         }}
       />
+      { children }
     </Box>
   );
 }

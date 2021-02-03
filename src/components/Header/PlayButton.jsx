@@ -17,7 +17,8 @@ export const PlayButton = ({ onDrag, ...props }) => {
         visible: {
           x: 0,
           transition: {
-            delay: 0.5,
+            // delay: 0.5,
+            delay: 2.8,
             duration: 0.8,
           }
         }

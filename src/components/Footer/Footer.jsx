@@ -6,7 +6,7 @@ import { FlexCol, MotionText } from '../Components';
 import { ClickRipple } from '../Animations';
 import { useAnimation } from 'framer-motion';
 import { contactAtom } from '../../lib/atoms';
-import { Heading } from './Heading';
+import { FooterHeading } from './FooterHeading';
 
 
 export const Footer = ({ ...props }) => {
@@ -19,7 +19,7 @@ export const Footer = ({ ...props }) => {
 
   useEffect(() => {
     setContactRef(ref);
-  }, [])
+  }, []);
 
   const onMouseClick = (e) => {
     if (isAnimating) return;
@@ -33,7 +33,7 @@ export const Footer = ({ ...props }) => {
     setTimeout(() => {
       setIsAnimating(false);
       controls.start('hidden');
-    }, 2000)
+    }, 2000);
   };
 
   return (
@@ -49,47 +49,23 @@ export const Footer = ({ ...props }) => {
         mouseClick={mouseClick}
       />
 
-      <Heading />
+      <FooterHeading />
 
       <Text
         variant='text.h2'
-        sx={{
-          fontSize: [5, 6],
-          position: 'absolute',
-          bottom: [3, 4, 5],
-          left: [3, 5],
-          userSelect: 'none',
-          color: 'primary'
-        }}
+        sx={copiedTextSx}
       >
         Copied!
       </Text>
 
       <Box
         onClick={onMouseClick}
-        sx={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          cursor: 'pointer',
-        }}
+        sx={clickBoxSx}
       />
 
       <MotionText
         variant='text.h4'
-        sx={{
-          fontSize: [2, 4],
-          color: 'white',
-          p: [2],
-          bg: 'secondary',
-          position: 'absolute',
-          top: '-10px',
-          left: [3, 5],
-        }}
+        sx={ctaTextSx}
       >
         Click Below To Copy Email
       </MotionText>
@@ -102,6 +78,36 @@ const footerSx = {
   alignItems: 'flex-start',
   height: ['350px', '440px', null , '506px', '600px'],
   bg: 'primary',
+};
+
+const copiedTextSx = {
+  fontSize: [5, 6],
+  position: 'absolute',
+  bottom: [3, 4, 5],
+  left: [3, 5],
+  userSelect: 'none',
+  color: 'primary'
+};
+
+const clickBoxSx = {
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  cursor: 'pointer',
+};
+
+const ctaTextSx = {
+  fontSize: [2, 4],
+  color: 'white',
+  p: [2],
+  bg: 'secondary',
+  position: 'absolute',
+  top: '-10px',
+  left: [3, 5],
 };
 
 Footer.displayName = 'Footer';

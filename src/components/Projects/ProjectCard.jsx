@@ -1,22 +1,19 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Link } from 'theme-ui';
-import React from 'react';
-import { HiOutlineArrowRight } from 'react-icons/hi';
-import { CircleButton } from '../CircleButton';
 import { MotionBox, Image, Flex } from '../Components';
-import { text } from '@fortawesome/fontawesome-svg-core';
 
 
-export const ProjectCard = ({ project }) => {
+export const ProjectCard = ({ project, index }) => {
 
   return (
     <Box
       data-comp={ProjectCard.displayName}
-      sx={cardSx}
+      sx={cardSx(index)}
     >
       <MotionBox
         variants='default'
         animateOnLoad={true}
+        threshold={0}
       >
         <Image
           src={project?.image?.fluid?.srcWebp}
@@ -25,6 +22,7 @@ export const ProjectCard = ({ project }) => {
             height: 'auto',
             mb: [2],
           }}
+          minHeight={['66vw', '330px']}
         />
       </MotionBox>
 
@@ -32,6 +30,7 @@ export const ProjectCard = ({ project }) => {
         <MotionBox
           variants='default'
           animateOnLoad={true}
+          threshold={0.25}
         >
           <Text
             variant='text.h2'
@@ -66,6 +65,7 @@ export const ProjectCard = ({ project }) => {
         <MotionBox
           variants='default'
           animateOnLoad={true}
+          threshold={0.25}
         >
           <Text sx={{ mb: [3] }}>
             { project?.body?.body } {' '}
@@ -100,14 +100,15 @@ export const ProjectCard = ({ project }) => {
   );
 }
 
-const cardSx = {
+const cardSx = index => ({
   display: 'flex',
   flexDirection: 'column',
   width: '500px',
   maxWidth: '100vw',
   my: [3],
-  mx: [0, 0, 3],
-};
+  ml: [0, 0, 3],
+  mr: [0, 0, 3, null, null, index % 2 === 0 ? 7 : null],
+});
 
 const tagSx = {
   border: '1px solid',

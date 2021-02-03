@@ -10,18 +10,26 @@ import Halftone from '../../assets/images/halftone.png';
 export const ParallaxAvatar = () => {
 
   const { scrollY } = useViewportScroll();
-  const y1 = useTransform(scrollY, [elementTop, elementTop + 20], [0, -1], {
-    clamp: false
-  });
-  const y2 = useTransform(scrollY, [elementTop, elementTop + 10], [0, -1], {
-    clamp: false
-  });
-  const y3 = useTransform(scrollY, [elementTop, elementTop + 5], [0, -1], {
-    clamp: false
-  });
-  const y4 = useTransform(scrollY, [elementTop, elementTop + 15], [0, -1], {
-    clamp: false
-  });
+  const y1 = useTransform(
+    scrollY,
+    [elementTop, elementTop + 20], [0, -1],
+    { clamp: false }
+  );
+  const y2 = useTransform(
+    scrollY,
+    [elementTop, elementTop + 10], [0, -1],
+    { clamp: false }
+  );
+  const y3 = useTransform(
+    scrollY,
+    [elementTop, elementTop + 5], [0, -1],
+    { clamp: false }
+  );
+  const y4 = useTransform(
+    scrollY,
+    [elementTop, elementTop + 15], [0, -1],
+    { clamp: false }
+  );
 
   return (
     <Box
@@ -43,7 +51,9 @@ export const ParallaxAvatar = () => {
           height: 'inherit',
           borderRadius: '50%',
           bg: 'primary',
-          background: 'linear-gradient(108deg, rgba(246,80,84,1) 24%, rgba(207,85,88,1) 100%)',
+          background: `linear-gradient(108deg,
+            rgba(246,80,84,1) 24%,
+            rgba(207,85,88,1) 100%)`,
         }}
         style={{ y: y1 }}
       />

@@ -1,41 +1,35 @@
 /** @jsx jsx */
-import { jsx, Text, Box } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 import { useState, useRef, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { useAnimation, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
-import { HiOutlineArrowDown } from 'react-icons/hi';
-import { Flex, FlexCol, MotionBox, Motion } from '../Components';
+import { useAnimation } from 'framer-motion';
+import { FaChevronDown } from 'react-icons/fa';
+import { Flex, FlexCol, MotionBox, MotionText } from '../Components';
 import { Menu } from '../Menu';
-import { Heading } from './Heading';
+import { HeaderHeading } from './HeaderHeading';
 import { Buttons } from './Buttons';
 import { PlayButton } from './PlayButton';
-import { CircleButton } from '../CircleButton';
-import { UnderlineButton } from '../UnderlineButton';
+import { Navbar } from './Navbar';
+import { Splash } from '../Splash';
 import { GameContainer } from '../Game';
 import { contactAtom, aboutAtom, projectsAtom } from '../../lib/atoms';
 
 
-export const Header = ({ ...props }) => {
+export const Header = () => {
 
   const [ menuOpen, setMenuOpen ] = useState(false);
   const [ gameOpen, setGameOpen ] = useState(false);
   const [ isResetting, setIsResetting ] = useState(false);
+  const [ showSplash, setShowSplash ] = useState(true);
 
   const contactRef = useRecoilValue(contactAtom);
   const aboutRef = useRecoilValue(aboutAtom);
   const projectsRef = useRecoilValue(projectsAtom);
 
-  const [ motionProps, setMotionProps ] = useState({
-    initial: false,
-    drag: 'x',
-    variants: {},
-    animate: null,
-  });
+  const [ motionProps, setMotionProps ] = useState(initialSliderProps);
   const xCoord = useRef(null);
 
   const controls = useAnimation();
-  const gameControls = useAnimation();
 
   const onMenuClick = () => {
     if (!menuOpen) {
@@ -47,54 +41,28 @@ export const Header = ({ ...props }) => {
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 2200)
+  }, [])
+
   return (
     <FlexCol
       data-comp={Header.displayName}
       sx={headerSx}
     >
-      <Flex
-        sx={{
-          ...navbarSx,
-          a: {
-            color: 'white'
-          }
-        }}
-        {...props}
-      >
-        <Text
-          variant='text.h2'
-          sx={{ color: 'white', mr: [2] }}
-        >
-          Jeremy Gabriel
-        </Text>
-        <Flex sx={{ alignItems: 'center', justifyContent: 'flex-end' }}>
-          <UnderlineButton
-            text='Contact Me'
-            to={contactRef}
-            sx={{
-              mr: [6, null, 0],
-              display: ['none', null, 'block']
-            }}
-          />
-          <FaBars
-            sx={{
-              display: ['block', null, 'none'],
-              color: 'white',
-              fontSize: '30px',
-              cursor: 'pointer',
-              // zIndex: 1,
-            }}
-            onClick={onMenuClick}
-          />
-        </Flex>
-      </Flex>
+      <Navbar
+        onMenuClick={onMenuClick}
+        contactRef={contactRef}
+      />
 
       <Flex sx={contentSx}>
         <Buttons
           aboutRef={aboutRef}
           projectsRef={projectsRef}
         />
-        <Heading />
+        <HeaderHeading />
       </Flex>
 
       <Flex
@@ -103,14 +71,7 @@ export const Header = ({ ...props }) => {
           display: ['flex', null, 'none']
         }}
       >
-        <FaChevronDown
-          sx={{
-            position: 'absolute',
-            bottom: ['140px', '110px'],
-            fontSize: '40px',
-            color: '#ea3034',
-          }}
-        />
+        <FaChevronDown sx={chevronSx} />
       </Flex>
 
       <Box sx={rightTriangle} />
@@ -152,12 +113,7 @@ export const Header = ({ ...props }) => {
               animate: 'hidden',
             });
             setTimeout(() => {
-              setMotionProps({
-                initial: false,
-                drag: 'x',
-                variants: {},
-                animate: null,
-              });
+              setMotionProps(initialSliderProps);
               setIsResetting(true);
             }, 1000);
             setTimeout(() => {
@@ -177,23 +133,23 @@ export const Header = ({ ...props }) => {
           projectsRef={projectsRef}
         />
       }
+
+      { showSplash &&
+        <Splash />
+      }
     </FlexCol>
   )
 }
 
 const headerSx = {
   height: '100vh',
-  minHeight: '400px',
+  minHeight: ['400px'],
   maxHeight: '800px',
   overflow: 'hidden',
   bg: 'primary',
-  background: 'linear-gradient(145deg, rgba(246,80,84,1) 82%, rgba(255,69,73,1) 100%)',
-};
-
-const navbarSx = {
-  justifyContent: 'space-between',
-  alignItems: ['flex-start', null, 'center'],
-  p: 3,
+  background: `linear-gradient(145deg,
+    rgba(246,80,84,1) 82%,
+    rgba(255,69,73,1) 100%)`,
 };
 
 const contentSx = {
@@ -233,6 +189,20 @@ const sliderSx = {
   width: '120%',
   height: '100%',
   bg: 'white',
-}
+};
+
+const initialSliderProps = {
+  initial: false,
+  drag: 'x',
+  variants: {},
+  animate: null,
+};
+
+const chevronSx = {
+  position: 'absolute',
+  bottom: ['15vh', '110px'],
+  fontSize: '40px',
+  color: '#ea3034',
+};
 
 Header.displayName = 'Header';

@@ -49,6 +49,7 @@ export const About = () => {
           variants='default'
           animateOnLoad={true}
           sx={{ mb: [3, null, null, 6] }}
+          threshold={0.25}
         >
           Project Manager turned Software Developer, and I'm here to stay, baby. As I live and dream in programming, I'm powered by the love of efficient code through the lens of enjoyable, intuitive design. Let's build some awesome things together, and maybe eat, cry, and celebrate along the way.
         </MotionText>

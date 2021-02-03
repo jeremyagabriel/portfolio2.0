@@ -8,16 +8,18 @@ const Component = motion.custom(Text);
 
 export const MotionText = memo(({
   children,
+  text,
   initial = 'hidden',
   animate,
   variants = {},
   animateOnLoad = false,
+  threshold = 1,
   delay,
   ...props
 }) => {
 
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold,
     triggerOnce: true,
   });
 
@@ -38,7 +40,7 @@ export const MotionText = memo(({
       }
       {...props}
     >
-      { children }
+      { text || children }
     </Component>
   );
 })

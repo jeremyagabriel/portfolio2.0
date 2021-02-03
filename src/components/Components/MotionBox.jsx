@@ -12,11 +12,12 @@ export const MotionBox = memo(({
   animate,
   variants = {},
   animateOnLoad = false,
+  threshold = 1,
   ...props
 }) => {
 
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold,
     triggerOnce: true,
   });
 

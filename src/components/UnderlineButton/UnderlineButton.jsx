@@ -59,7 +59,11 @@ export const UnderlineButton = ({
         { text }
       </Text>
       <MotionBox
-        sx={{ position: 'relative', ...defaultUnderlineSx, ...underlineSx }}
+        sx={{
+          position: 'relative',
+          ...defaultUnderlineSx,
+          ...underlineSx
+        }}
         initial='hidden'
         animate={controls}
         variants={motionVariant}

@@ -4,17 +4,18 @@ import { FlexCol, MotionBox, MotionText } from '../Components';
 import { UnderlineButton } from '../UnderlineButton';
 
 
-export const Heading = () => {
+export const FooterHeading = () => {
 
   return (
     <FlexCol
-      data-comp={Heading.displayName}
+      data-comp={FooterHeading.displayName}
       sx={boxSx}
     >
       <MotionText
         animateOnLoad={true}
         variants='default'
         variant='text.h2'
+        threshold={0.25}
         sx={{
           ...textSx,
           'WebkitTextFillColor': 'transparent',
@@ -28,6 +29,7 @@ export const Heading = () => {
         animateOnLoad={true}
         variants='default'
         variant='text.h2'
+        threshold={0.25}
         sx={{
           ...textSx,
           mb: [3]
@@ -38,26 +40,12 @@ export const Heading = () => {
       <MotionBox
         animateOnLoad={true}
         variants='default'
+        threshold={0.25}
       >
         <UnderlineButton
           text='jeremyagabriel.dev@gmail.com'
         />
       </MotionBox>
-
-      {/* <MotionText
-        variant='text.h4'
-        variants='default'
-        animateOnLoad={true}
-        sx={{
-          fontSize: [2, 4],
-          color: 'rgba(255,255,255,0.4)',
-          position: 'absolute',
-          top: '20px',
-          left: [5],
-        }}
-      >
-        Click Anywhere To Copy Email
-      </MotionText> */}
     </FlexCol>
   )
 }
@@ -80,4 +68,4 @@ const textSx = {
   fontSize: ['70px', '90px', null, '110px', '130px'],
 };
 
-Heading.displayName = 'FooterHeading';
+FooterHeading.displayName = 'FooterHeading';

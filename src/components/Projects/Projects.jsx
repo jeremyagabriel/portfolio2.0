@@ -30,7 +30,7 @@ export const Projects = ({ projects }) => {
         alignItems: 'center',
         justifyContent: 'center',
         pt: [2],
-        mb: [8, 10, 20],
+        mb: [8, 10, 16],
       }}
     >
       <Heading
@@ -43,7 +43,7 @@ export const Projects = ({ projects }) => {
           justifyContent: 'center',
           flexWrap: 'wrap',
           width: '100%',
-          maxWidth: '1100px',
+          maxWidth: '1200px',
         }}
       >
         { projects?.slice(0, isExpanded ? projects.length : 4)
@@ -51,6 +51,7 @@ export const Projects = ({ projects }) => {
             <ProjectCard
               project={project}
               key={index}
+              index={index}
             />
         ))}
       </Flex>

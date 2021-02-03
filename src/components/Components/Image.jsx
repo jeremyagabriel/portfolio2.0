@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Box, Image as ThemeImage } from 'theme-ui';
-import { useMemo } from 'react';
 import { memo, useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -9,6 +8,7 @@ export const Image = memo(({
   lazy = true,
   src,
   alt,
+  minHeight,
   ...props
 }) => {
 
@@ -23,7 +23,7 @@ export const Image = memo(({
   }, [inView])
 
   return (
-    <Box ref={ref}>
+    <Box ref={ref} sx={{ minHeight }}>
       { inView || !lazy
           ? <ThemeImage
               data-comp={Image.displayName}

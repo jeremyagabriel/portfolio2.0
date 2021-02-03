@@ -22,6 +22,20 @@ export const CircleButton = memo(({
   const Icon = icon;
   const controls = useAnimation();
 
+  const _onClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
+    if (!to) return;
+    typeof to === 'object'
+      ? to.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      : window.open(to, '_blank')
+  };
+
   return (
     <MotionBox
       data-comp={CircleButton.displayName}
@@ -29,19 +43,7 @@ export const CircleButton = memo(({
         ...initialCircleSx,
         ...circleSx,
       }}
-      onClick={() => {
-        if (onClick) {
-          onClick();
-          return;
-        }
-        if (!to) return;
-        typeof to === 'object'
-          ? to.current.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            })
-          : window.open(to, '_blank')
-      }}
+      onClick={_onClick}
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}
       initial='hidden'

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Container } from 'theme-ui';
+import { jsx, Container } from 'theme-ui';
 import { useMemo } from 'react';
 import { graphql } from 'gatsby';
 import { Main } from '../layouts';
@@ -34,11 +34,9 @@ const containerSx = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  // minHeight: '1000px',
   bg: 'white',
-  // px: [1, 2, 3],
   pt: [4, null, null, 15],
-  pb: [8, 10, 15],
+  pb: [10, 15, 20],
 };
 
 Home.displayName = 'Home';

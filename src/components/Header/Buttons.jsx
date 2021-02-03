@@ -63,7 +63,7 @@ const circleSx = {
 
 const motionVariant = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.3 } }
+  visible: { opacity: 1, transition: { duration: 0.3, delay: 2.2 } }
 };
 
 Buttons.displayName = 'Buttons';

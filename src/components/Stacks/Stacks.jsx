@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx, Text, Box } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { useRef, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { Flex, FlexCol, MotionBox } from '../Components';
+import { Flex, FlexCol } from '../Components';
 import { StackColumn } from './StackColumn';
 import { Heading } from '../Heading';
 import { stacksAtom } from '../../lib/atoms';
@@ -23,13 +23,7 @@ export const Stacks = () => {
       data-comp={Stacks.displayName}
       ref={ref}
       id='stacks'
-      sx={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        pt: [2],
-        px: [1, 2, 3],
-      }}
+      sx={stacksSx}
     >
       <Heading
         heading='Stacks'
@@ -45,7 +39,7 @@ export const Stacks = () => {
         <StackColumn
           stacks={stacks.slice(0,2)}
           styles={{
-            mr: [0, null, null, 8],
+            mr: [0, null, null, 8, 12, 16],
             mb: [4, 6, 8, 0]
           }}
         />
@@ -56,5 +50,13 @@ export const Stacks = () => {
     </FlexCol>
   );
 }
+
+const stacksSx = {
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  pt: [2],
+  px: [1, 2, 3],
+};
 
 Stacks.displayName = 'StacksSection';

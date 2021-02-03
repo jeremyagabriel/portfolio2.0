@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Text } from 'theme-ui';
-import { FlexCol, MotionBox, MotionText, Image } from '../Components';
+import { Flex, FlexCol, MotionBox, MotionText, Image } from '../Components';
 
 
 export const StackColumn = ({ stacks, styles }) => {
@@ -13,7 +13,7 @@ export const StackColumn = ({ stacks, styles }) => {
           key={index}
           sx={{
             alignItems: 'center',
-            mb: index === stacks.length - 1 ? 0 : [4, 6, 8]
+            mb: index === stacks.length - 1 ? 0 : [7, 9, 10]
           }}
         >
           <MotionText
@@ -23,12 +23,11 @@ export const StackColumn = ({ stacks, styles }) => {
             }}
             animateOnLoad={true}
             variants='default'
+            threshold={0.5}
           >
             {type.title}
           </MotionText>
-          <MotionBox
-            animateOnLoad={true}
-            variants='default'
+          <Flex
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -48,6 +47,7 @@ export const StackColumn = ({ stacks, styles }) => {
                 <MotionBox
                   variants='default'
                   animateOnLoad={true}
+                  threshold={0.25}
                 >
                   <Image
                     src={stack.logo}
@@ -56,6 +56,7 @@ export const StackColumn = ({ stacks, styles }) => {
                       height: '86px',
                       filter: 'invert(1)'
                     }}
+                    minHeight='86px'
                   />
                   <Text
                     sx={{
@@ -68,7 +69,7 @@ export const StackColumn = ({ stacks, styles }) => {
                 </MotionBox>
               </FlexCol>
             ))}
-          </MotionBox>
+          </Flex>
         </FlexCol>
       ))}
     </FlexCol>
