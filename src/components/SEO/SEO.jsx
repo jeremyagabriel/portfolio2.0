@@ -11,6 +11,10 @@ export const SEO = () => {
       meta={[
         {
           property: `og:title`,
+          content: "Jeremy Gabriel's Portfolio",
+        },
+        {
+          property: `og:description`,
           content: "Front-End Engineer with a love for enjoyable and intuitive user experiences.",
         },
         {
