@@ -89,7 +89,7 @@ export const ParallaxAvatar = () => {
       >
         <Line />
         <Line
-          x='105%'
+          hiddenX='105%'
           styles={{
             top: '108px',
             left: '-20px',
