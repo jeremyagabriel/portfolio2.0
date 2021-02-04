@@ -94,6 +94,6 @@ export const About = () => {
   );
 }
 
-const aboutText = `Project Manager turned Software Developer, and I'm here to stay, baby. As I live and dream in programming, I'm powered by the love of efficient code through the lens of enjoyable, intuitive design. Let's build some awesome things together, and maybe eat, cry, and celebrate along the way.`;
+const aboutText = `Project manager turned software developer, powered by the love of building efficient code through the lens of a design background. While embracing latest technologies and practices to keep sites modern and performant, I also focus on creating enjoyable and intuitive user experiences.`;
 
 About.displayName = 'AboutSection';
