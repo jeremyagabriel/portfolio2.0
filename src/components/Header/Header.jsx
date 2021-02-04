@@ -44,7 +44,7 @@ export const Header = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowSplash(false);
-    }, 2200)
+    }, 3000)
   }, [])
 
   return (
@@ -188,7 +188,7 @@ const sliderSx = {
   bottom: 0,
   width: '120%',
   height: '100%',
-  bg: 'white',
+  bg: 'tertiary',
 };
 
 const initialSliderProps = {
@@ -202,7 +202,7 @@ const chevronSx = {
   position: 'absolute',
   bottom: ['15vh', '110px'],
   fontSize: '40px',
-  color: '#ea3034',
+  color: 'tertiary',
 };
 
 Header.displayName = 'Header';

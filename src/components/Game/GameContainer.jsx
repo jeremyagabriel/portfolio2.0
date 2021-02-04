@@ -38,7 +38,7 @@ export const GameContainer = ({
         <Battleship />
         <FaTimes
           sx={{
-            color: 'black',
+            color: 'white',
             fontSize: '30px',
             cursor: 'pointer',
             position: 'absolute',
@@ -63,7 +63,7 @@ const boxSx = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  pt: [10, 8, 5, 4],
+  pt: [10, 8, 5],
   zIndex: 3,
 };
 

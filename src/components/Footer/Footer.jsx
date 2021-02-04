@@ -89,7 +89,10 @@ const copiedTextSx = {
   bottom: [3, 4, 5],
   left: [3, 5],
   userSelect: 'none',
-  color: 'primary'
+  color: 'primary',
+  'WebkitTextFillColor': 'transparent',
+  'WebkitTextStrokeWidth': '1px',
+  'WebkitTextStrokeColor': 'primary'
 };
 
 const clickBoxSx = {

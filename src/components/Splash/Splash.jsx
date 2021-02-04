@@ -34,7 +34,7 @@ export const Splash = () => {
           left: 0,
           bottom: 0,
           right: 0,
-          bg: '#ea3034',
+          bg: 'tertiary',
           // zIndex: 4,
         }}
       />

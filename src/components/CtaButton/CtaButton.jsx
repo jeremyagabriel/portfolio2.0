@@ -26,6 +26,7 @@ export const CtaButton = ({
       data-comp={CtaButton.displayName}
       variants='default'
       animateOnLoad={true}
+      threshold={0.5}
       onHoverStart={() => controls.start('visible')}
       onHoverEnd={() => controls.start('hidden')}
       sx={{

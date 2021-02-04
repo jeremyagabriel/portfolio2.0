@@ -15,6 +15,7 @@ export default {
     black: '#000000',
     primary: '#F65054',
     secondary: '#000000',
+    tertiary: '#EA3034',
   },
   breakpoints: [
     "480px",

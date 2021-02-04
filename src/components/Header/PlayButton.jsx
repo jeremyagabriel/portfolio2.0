@@ -48,7 +48,7 @@ const boxSx = {
   alignItems: 'center',
   top: '140px',
   left: [-110, null, -170],
-  width: ['120px', null, '170px'],
+  width: ['110px', null, '170px'],
   height: ['31px', null, '44px'],
   bg: 'white',
   cursor: 'pointer',
@@ -61,11 +61,6 @@ const textSx = {
   color: 'primary',
   fontSize: [2, null, 4],
   ml: [3, null, 5],
-};
-
-const motionVariant = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.3 } }
 };
 
 PlayButton.displayName = 'PlayButton';

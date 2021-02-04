@@ -457,7 +457,7 @@ class Battleship extends Component{
             width: '100%',
             justifyContent: 'space-between',
             px: [2],
-            mb: [1],
+            mb: [4, 2, 1],
           }}
         >
           <Box>
@@ -466,9 +466,19 @@ class Battleship extends Component{
               sx={{
                 mb: [1],
                 fontSize: [5, 6],
+                color: 'white',
               }}
             >
-              Doggoship
+              Doggo
+              <span
+                sx={{
+                  'WebkitTextFillColor': 'transparent',
+                  'WebkitTextStrokeWidth': '1px',
+                  'WebkitTextStrokeColor': 'white'
+                }}
+              >
+                ship
+              </span>
             </Text>
             <Box sx={{ height: '26px', display: ['none', 'block'] }}>
               <Messages
@@ -485,22 +495,22 @@ class Battleship extends Component{
             <Text
               sx={{
                 fontSize: [0, 1],
-                fontColor: 'black'
+                color: 'white'
               }}
             >
               Treats Left: {' '}
               <span
                 sx={{
-                  fontColor: 'black',
+                  color: 'white',
                   fontWeight: 'bold',
                   color: this.state.torpCounter < 11
-                    ? 'red' : 'black'
+                    ? 'black' : 'white'
                 }}
               >
                 { this.state.torpCounter }
               </span><br/>
               Doggos Left To Find: {' '}
-              <span sx={{ color: 'black' }}>
+              <span sx={{ color: 'white' }}>
                 { this.state.hitCounter }
               </span>
             </Text>
@@ -511,8 +521,8 @@ class Battleship extends Component{
                 textTransform: 'uppercase',
                 py: '4px',
                 px: 1,
-                bg: 'primary',
-                color: 'white',
+                bg: 'white',
+                color: 'primary',
                 fontWeight: 'medium',
                 mt: [1],
               }}
@@ -528,7 +538,7 @@ class Battleship extends Component{
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          width: ['91vw', null, '540px'],
+          width: ['85vw', null, '506px'],
         }}>
           { squares }
         </Box>

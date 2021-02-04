@@ -36,12 +36,12 @@ export const styles = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    width: '540px',
+    width: '506px',
   },
   message: {
     fontSize: '20px',
     marginTop: '0px',
-    color: 'black',
+    color: 'white',
     fontWeight: '600',
     display: 'flex',
     alignItems: 'center',
@@ -53,7 +53,7 @@ export const styles = {
     margin: '10px 0px',
   },
   regularFont: {
-    color: 'black',
+    color: 'white',
     fontWeight: '800',
   },
   warningFont: {
@@ -87,12 +87,6 @@ export const styles = {
   photos: {
     width: '50px',
     height: '50px',
-  },
-  footer: {
-    fontSize: '10px',
-    marginTop: '50px',
-    marginBottom: '20px',
-    color: 'black',
   },
   header: {
     color: 'white',

@@ -11,7 +11,7 @@ import { ParallaxAvatar } from './ParallaxAvatar';
 import { aboutAtom } from '../../lib/atoms';
 
 
-export const About = () => {
+export const MoreAbout = () => {
 
   const [ moreAbout, setMoreAbout ] = useState(false);
   const setAboutRef = useSetRecoilState(aboutAtom);
@@ -32,8 +32,7 @@ export const About = () => {
           x: 0,
         },
         hidden: {
-          // x: '150%',
-          x: 0,
+          x: '150%',
           transition: {
             duration: 1.5,
           }
@@ -41,7 +40,7 @@ export const About = () => {
       }}
     >
       <Flex
-        data-comp={About.displayName}
+        data-comp={MoreAbout.displayName}
         ref={ref}
         id='about'
         sx={{
@@ -60,7 +59,7 @@ export const About = () => {
           }}
         >
           <Heading
-            heading='About Me'
+            heading='MoreAbout Me'
             subheading='Hello World'
             styles={{ mb: [3, null, null, 6], alignSelf: 'flex-start' }}
           />
@@ -74,7 +73,7 @@ export const About = () => {
             {aboutText}
           </MotionText>
 
-          {/* <CtaButton
+          <CtaButton
             icon={HiOutlineArrowRight}
             ctaText='Read More'
             onClick={() => {
@@ -84,10 +83,10 @@ export const About = () => {
               }, 1500)
             }}
             styles={{ alignSelf: 'flex-start' }}
-          /> */}
+          />
         </FlexCol>
 
-        <ParallaxAvatar />
+        {/* <ParallaxAvatar /> */}
       </Flex>
     </MotionBox>
     </>
@@ -96,4 +95,4 @@ export const About = () => {
 
 const aboutText = `Project Manager turned Software Developer, and I'm here to stay, baby. As I live and dream in programming, I'm powered by the love of efficient code through the lens of enjoyable, intuitive design. Let's build some awesome things together, and maybe eat, cry, and celebrate along the way.`;
 
-About.displayName = 'AboutSection';
+MoreAbout.displayName = 'AboutSection';

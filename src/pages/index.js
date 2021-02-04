@@ -3,9 +3,10 @@ import { jsx, Container } from 'theme-ui';
 import { useMemo } from 'react';
 import { graphql } from 'gatsby';
 import { Main } from '../layouts';
-import { About } from '../components/About'
-import { Projects } from '../components/Projects'
-import { Stacks } from '../components/Stacks'
+import { About } from '../components/About';
+import { Projects } from '../components/Projects';
+import { Stacks } from '../components/Stacks';
+import { SEO } from '../components/SEO';
 
 
 const Home = ({ data }) => {
@@ -20,6 +21,7 @@ const Home = ({ data }) => {
         data-comp={Home.displayName}
         sx={containerSx}
       >
+        <SEO />
         <About />
         <Projects
           projects={content.projects}
