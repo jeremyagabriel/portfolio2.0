@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import Preview from '../../assets/images/linkpreview.jpg'
 
-const SEO = () => {
+export const SEO = () => {
 
   return (
     <Helmet
@@ -25,5 +25,3 @@ const SEO = () => {
     />
   );
 }
-
-export default SEO;
