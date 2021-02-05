@@ -18,10 +18,10 @@ export const SEO = () => {
         name='image'
         content={image}
       />
-      <Meta
+      {/* <Meta
         property='og:url'
         content={url}
-      />
+      /> */}
       <Meta
         propety='og:title'
         content={title}
