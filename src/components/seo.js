@@ -32,7 +32,7 @@ export const SEO = () => {
       />
       <Meta
         propety='og:image'
-        content={image}
+        content={url + image}
       />
     </>
   );
