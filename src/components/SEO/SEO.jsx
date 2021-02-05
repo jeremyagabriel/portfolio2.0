@@ -1,21 +1,22 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import Preview from '../../../static/linkpreview.jpg';
 
 export const SEO = () => {
+  const { site } = useStaticQuery(query)
+  const { title, description, url, image } = site.siteMetadata;
 
   return (
     <Helmet
-      title="Jeremy Gabriel's Portfolio"
+      title={title}
       meta={[
         {
           property: `og:title`,
-          content: "Jeremy Gabriel's Portfolio",
+          content: title,
         },
         {
           property: `og:description`,
-          content: "Front-End Engineer with a love for enjoyable and intuitive user experiences.",
+          content: description,
         },
         {
           property: `og:type`,
@@ -23,9 +24,22 @@ export const SEO = () => {
         },
         {
           property: `og:image`,
-          content: `https://jeremyagabriel.netlify.app/${Preview}`,
+          content: `${url}${image}`,
         },
       ]}
     />
   );
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+        url
+        image
+      }
+    }
+  }
+`;

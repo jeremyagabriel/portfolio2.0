@@ -21,7 +21,10 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: `Jeremy Gabriel's Portfolio`
+    title: `Jeremy Gabriel's Portfolio`,
+    description: `Front-End Engineer with a love for enjoyable and intuitive user experiences.`,
+    url: `https://jeremyagabriel.netlify.app`,
+    image: `/linkpreview.jpg`
   },
   plugins: [
     'gatsby-plugin-theme-ui',

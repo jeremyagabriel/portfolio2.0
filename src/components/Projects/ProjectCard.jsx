@@ -74,7 +74,7 @@ export const ProjectCard = ({ project, index }) => {
             </Link>
             { project.siteUrl &&
               <Link sx={linkSx} href={project.siteUrl} target='_blank'>
-                {' '}| View App
+                {' '}| View Site
               </Link>
             }
           </Text>
