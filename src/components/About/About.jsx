@@ -74,17 +74,14 @@ export const About = ({ content }) => {
             {content?.[1]?.text.text}
           </MotionText>
 
-          {/* <CtaButton
+          <CtaButton
             icon={HiOutlineArrowRight}
-            ctaText='Read More'
-            onClick={() => {
-              controls.start('hidden');
-              setTimeout(() => {
-                setMoreAbout(true);
-              }, 1500)
-            }}
+            ctaText='Visit LinkedIn'
             styles={{ alignSelf: 'flex-start' }}
-          /> */}
+            onClick={() => {
+              window.open('https://www.linkedin.com/in/jeremyagabriel', '_blank');
+            }}
+          />
         </FlexCol>
 
         <ParallaxAvatar />
