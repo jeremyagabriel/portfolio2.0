@@ -4,7 +4,7 @@ import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/seo';
 
 
 export const Main = ({ children }) => {
