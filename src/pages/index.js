@@ -12,7 +12,9 @@ import { SEO } from '../components/SEO';
 const Home = ({ data }) => {
 
   const content = useMemo(() => ({
-    projects: data?.contentfulSection?.content
+    projects: data?.projects?.content,
+    about: data?.about?.content,
+    stacks: data?.stacks?.content,
   }), []);
 
   return (
@@ -22,11 +24,15 @@ const Home = ({ data }) => {
         sx={containerSx}
       >
         <SEO />
-        <About />
-        <Projects
-          projects={content.projects}
+        <About
+          content={content.about}
         />
-        <Stacks />
+        <Projects
+          content={content.projects}
+        />
+        <Stacks
+          content={content.stacks}
+        />
       </Container>
     </Main>
   )
@@ -46,24 +52,56 @@ Home.displayName = 'Home';
 export default Home;
 
 export const query = graphql`
-  query ProjectsQuery {
-  contentfulSection(metaHandle: {eq: "projects-section"}) {
+  query {
+    projects: contentfulSection(metaHandle: {eq: "projects-section"}) {
     content {
-      heading
-      subheading
-      body {
-        body
+      ... on ContentfulHeading {
+        heading
+        subheading
       }
-      repoUrl
-      siteUrl
-      image {
-        fluid {
-          srcWebp
+      ... on ContentfulSection {
+        content {
+          ... on ContentfulProject {
+            id
+            heading
+            subheading
+            body {
+              body
+            }
+            repoUrl
+            siteUrl
+            image {
+              fluid {
+                srcWebp
+              }
+            }
+            tags
+            completionDate
+          }
         }
       }
-      tags
-      completionDate
     }
   }
-}
+    about: contentfulSection(metaHandle: {eq: "about-section"}) {
+      content {
+        ... on ContentfulHeading {
+          heading
+          subheading
+        }
+        ... on ContentfulText {
+          text {
+            text
+          }
+        }
+      }
+    }
+    stacks: contentfulSection(metaHandle: {eq: "stacks-section"}) {
+      content {
+        ... on ContentfulHeading {
+          heading
+          subheading
+        }
+      }
+    }
+  }
 `

@@ -10,7 +10,7 @@ import { ProjectCard } from './ProjectCard';
 import { projectsAtom } from '../../lib/atoms';
 
 
-export const Projects = ({ projects }) => {
+export const Projects = ({ content }) => {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -34,8 +34,8 @@ export const Projects = ({ projects }) => {
       }}
     >
       <Heading
-        heading='Projects'
-        subheading='Featured Work'
+        heading={content?.[0]?.heading}
+        subheading={content?.[0]?.subheading}
       />
 
       <Flex
@@ -46,14 +46,18 @@ export const Projects = ({ projects }) => {
           maxWidth: '1200px',
         }}
       >
-        { projects?.slice(0, isExpanded ? projects.length : 4)
-          .map((project, index) => (
+        { content?.[1]?.content?.slice(0,
+            isExpanded
+              ? content?.[1]?.content?.length
+              : 4
+          ).map((project, index) => (
             <ProjectCard
               project={project}
               key={index}
               index={index}
             />
-        ))}
+          ))
+        }
       </Flex>
 
       { !isExpanded &&

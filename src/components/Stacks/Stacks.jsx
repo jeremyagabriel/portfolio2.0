@@ -9,7 +9,7 @@ import { stacksAtom } from '../../lib/atoms';
 import { stacks } from '../../lib/stacks';
 
 
-export const Stacks = () => {
+export const Stacks = ({ content }) => {
 
   const setStacksRef = useSetRecoilState(stacksAtom);
   const ref = useRef(null);
@@ -26,8 +26,8 @@ export const Stacks = () => {
       sx={stacksSx}
     >
       <Heading
-        heading='Stacks'
-        subheading='Stacks on'
+        heading={content?.[0]?.heading}
+        subheading={content?.[0]?.subheading}
       />
 
       <Flex

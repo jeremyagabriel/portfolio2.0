@@ -11,7 +11,7 @@ import { ParallaxAvatar } from './ParallaxAvatar';
 import { aboutAtom } from '../../lib/atoms';
 
 
-export const About = () => {
+export const About = ({ content }) => {
 
   const [ moreAbout, setMoreAbout ] = useState(false);
   const setAboutRef = useSetRecoilState(aboutAtom);
@@ -60,8 +60,8 @@ export const About = () => {
           }}
         >
           <Heading
-            heading='About Me'
-            subheading='Hello World'
+            heading={content?.[0]?.heading}
+            subheading={content?.[0]?.subheading}
             styles={{ mb: [3, null, null, 6], alignSelf: 'flex-start' }}
           />
 
@@ -71,7 +71,7 @@ export const About = () => {
             sx={{ mb: [3, null, null, 6] }}
             threshold={0.25}
           >
-            {aboutText}
+            {content?.[1]?.text.text}
           </MotionText>
 
           {/* <CtaButton
@@ -93,7 +93,5 @@ export const About = () => {
     </>
   );
 }
-
-const aboutText = `Project manager turned software developer, powered by the love of building efficient code through the lens of a design background. While embracing latest technologies and practices to keep sites modern and performant, I also focus on creating enjoyable and intuitive user experiences.`;
 
 About.displayName = 'AboutSection';
