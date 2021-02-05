@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useAnimation } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
-import { Flex, FlexCol, MotionBox, MotionText } from '../Components';
+import { Flex, FlexCol, MotionBox, Image } from '../Components';
 import { Menu } from '../Menu';
 import { HeaderHeading } from './HeaderHeading';
 import { Buttons } from './Buttons';
@@ -13,6 +13,7 @@ import { Navbar } from './Navbar';
 import { Splash } from '../Splash';
 import { GameContainer } from '../Game';
 import { contactAtom, aboutAtom, projectsAtom } from '../../lib/atoms';
+import Preview from '../../assets/images/linkpreview.jpg';
 
 
 export const Header = () => {
@@ -52,6 +53,17 @@ export const Header = () => {
       data-comp={Header.displayName}
       sx={headerSx}
     >
+      <Image
+        src={Preview}
+        sx={{
+          width: '50%',
+          height: 'auto',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: -10
+        }}
+      />
       <Navbar
         onMenuClick={onMenuClick}
         contactRef={contactRef}
