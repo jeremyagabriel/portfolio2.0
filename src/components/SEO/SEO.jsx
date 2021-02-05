@@ -9,25 +9,14 @@ export const SEO = () => {
   return (
     <Helmet
       title={title}
-      meta={[
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: description,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: `${url}${image}`,
-        },
-      ]}
-    />
+    >
+      <meta name="description" content={description} />
+      <meta name="image" content={image} />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+    </Helmet>
   );
 }
 
@@ -43,3 +32,22 @@ export const query = graphql`
     }
   }
 `;
+
+// meta={[
+//   {
+//     property: `og:title`,
+//     content: title,
+//   },
+//   {
+//     property: `og:description`,
+//     content: description,
+//   },
+//   {
+//     property: `og:type`,
+//     content: `website`,
+//   },
+//   {
+//     property: `og:image`,
+//     content: `${url}${image}`,
+//   },
+// ]}
