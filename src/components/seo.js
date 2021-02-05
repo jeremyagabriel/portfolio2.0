@@ -20,7 +20,7 @@ export const SEO = () => {
       />
       <Meta
         property='og:url'
-        content={url}
+        content={`http://jeremyagabriel.com`}
       />
       <Meta
         propety='og:title'
