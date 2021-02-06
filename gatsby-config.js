@@ -23,10 +23,10 @@ module.exports = {
   siteMetadata: {
     title: `Jeremy Gabriel's Portfolio`,
     description: `Front-End Engineer with a love for building efficient code and intuitive user experiences.`,
-    url: `https://jeremyagabriel.netlify.app`,
+    url: `https://www.jeremyagabriel.com`,
     image: `/images/linkpreview_v2.jpg`,
     author: `Jeremy Gabriel`,
-    keywords: `React, Javascript, Portfolio, Developer, Engineer`
+    keywords: `React, Javascript, Portfolio, Developer, Engineer, Frontend`
   },
   plugins: [
     'gatsby-plugin-theme-ui',
