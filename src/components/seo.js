@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 export const SEO = () => {
   const { site } = useStaticQuery(query)
-  const { title, description, url, image } = site.siteMetadata;
+  const { title, description, url, image, author, keywords } = site.siteMetadata;
 
   return (
     <>
@@ -15,13 +15,21 @@ export const SEO = () => {
         content={description}
       />
       <Meta
+        name='author'
+        content={author}
+      />
+      <Meta
+        name='keywords'
+        content={keywords}
+      />
+      <Meta
         name='image'
         content={image}
       />
-      {/* <Meta
+      <Meta
         property='og:url'
         content={url}
-      /> */}
+      />
       <Meta
         propety='og:title'
         content={title}
@@ -33,6 +41,14 @@ export const SEO = () => {
       <Meta
         propety='og:image'
         content={url + image}
+      />
+      <Meta
+        propety='og:image:width'
+        content='1200'
+      />
+      <Meta
+        propety='og:image:height'
+        content='630'
       />
     </>
   );
@@ -46,6 +62,8 @@ export const query = graphql`
         description
         url
         image
+        author
+        keywords
       }
     }
   }

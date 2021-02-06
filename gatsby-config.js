@@ -24,7 +24,9 @@ module.exports = {
     title: `Jeremy Gabriel's Portfolio`,
     description: `Front-End Engineer with a love for building efficient code and intuitive user experiences.`,
     url: `https://jeremyagabriel.netlify.app`,
-    image: `/linkpreview.jpg`
+    image: `/images/linkpreview_v2.jpg`,
+    author: `Jeremy Gabriel`,
+    keywords: `React, Javascript, Portfolio, Developer, Engineer`
   },
   plugins: [
     'gatsby-plugin-theme-ui',
