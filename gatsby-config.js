@@ -61,6 +61,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-smoothscroll`,
-    `gatsby-plugin-react-head`
+    `gatsby-plugin-react-head`,
+    `gatsby-plugin-react-helmet`
   ],
 }
