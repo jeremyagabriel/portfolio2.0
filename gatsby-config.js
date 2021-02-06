@@ -26,7 +26,7 @@ module.exports = {
     url: `https://www.jeremyagabriel.com`,
     image: `/images/linkpreview_v2.jpg`,
     author: `Jeremy Gabriel`,
-    keywords: `React, Javascript, Portfolio, Developer, Engineer, Frontend`
+    keywords: `React, Javascript, Portfolio, Developer, Engineer, Frontend, Web, Software`
   },
   plugins: [
     'gatsby-plugin-theme-ui',

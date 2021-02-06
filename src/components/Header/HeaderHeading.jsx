@@ -47,7 +47,7 @@ const container = {
       staggerChildren: 0.1
     }
   }
-}
+};
 
 const item = {
   hidden: { opacity: 0, x: 50 },
@@ -62,6 +62,6 @@ const item = {
       delay: 2.4
     },
   }
-}
+};
 
 HeaderHeading.displayName = 'HeaderHeading';

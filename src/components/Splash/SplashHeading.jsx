@@ -30,6 +30,7 @@ export const SplashHeading = () => {
         right: 0,
         zIndex: 5,
         transform: 'rotate(-15deg)',
+        overflow: 'initial',
       }}
     >
       <Flex>
@@ -59,12 +60,13 @@ export const SplashHeading = () => {
           sx={{
             color: 'white',
             fontSize: [setVw(150), null, '150px'],
+            width: [setVw(350), null, '350px'],
             fontWeight: 'semi',
             fontStyle: 'italic',
             'WebkitTextFillColor': 'transparent',
             'WebkitTextStrokeWidth': '1.5px',
             'WebkitTextStrokeColor': 'white',
-            mr: [setVw(192), null, '192px']
+            mr: [setVw(192), null, '172px'],
           }}
         />
       </Flex>
@@ -95,10 +97,11 @@ export const SplashHeading = () => {
           sx={{
             color: 'white',
             fontSize: [setVw(150), null, '150px'],
+            width: [setVw(390), null, '390px'],
             fontWeight: 'semi',
             fontStyle: 'italic',
             mt: [setVw(-30), null, '-30px'],
-            ml: [setVw(192), null, '192px'],
+            ml: [setVw(192), null, '172px'],
           }}
         />
 

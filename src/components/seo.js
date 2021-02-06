@@ -1,11 +1,10 @@
 import React from 'react';
-// import { Title, Meta } from 'react-head';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 
 export const SEO = () => {
-  const { site } = useStaticQuery(query)
+  const { site } = useStaticQuery(query);
   const { title, description, url, image, author, keywords } = site.siteMetadata;
 
   return (

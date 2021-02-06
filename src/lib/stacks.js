@@ -6,6 +6,7 @@ import SQLLogo from '../assets/images/SQL-Logo.png';
 import ReactLogo from '../assets/images/React-Logo.png';
 import ReduxLogo from '../assets/images/Redux-Logo.png';
 import GraphqlLogo from '../assets/images/Graphql-Logo.png';
+import JamstackLogo from '../assets/images/Jamstack-Logo.png';
 import RubyOnRailsLogo from '../assets/images/RubyOnRails-Logo.png';
 import NodejsLogo from '../assets/images/Nodejs-Logo.png';
 import MongoDBLogo from '../assets/images/MongoDB-Logo.png';
@@ -42,23 +43,6 @@ export const stacks = [
     ]
   },
   {
-    title: 'Frontend',
-    list: [
-      {
-        label: 'React & React Native',
-        logo: ReactLogo
-      },
-      {
-        label: 'Redux',
-        logo: ReduxLogo
-      },
-      {
-        label: 'GraphQL',
-        logo: GraphqlLogo
-      }
-    ]
-  },
-  {
     title: 'Backend',
     list: [
       {
@@ -73,10 +57,27 @@ export const stacks = [
         label: 'MongoDB',
         logo: MongoDBLogo
       },
+    ]
+  },
+  {
+    title: 'Frontend',
+    list: [
       {
-        label: 'PostgreSQL',
-        logo: PostgresqlLogo
-      }
+        label: 'React & React Native',
+        logo: ReactLogo
+      },
+      {
+        label: 'Redux',
+        logo: ReduxLogo
+      },
+      {
+        label: 'GraphQL',
+        logo: GraphqlLogo
+      },
+      {
+        label: 'Jamstack',
+        logo: JamstackLogo
+      },
     ]
   },
   {

@@ -10,6 +10,7 @@ export const SplashLinesRight = () => {
       data-comp={SplashLinesRight.displayName}
       sx={{
         width: [setVw(150), null, '150px'],
+        ml: [setVw(-20), null, '-20px'],
       }}
     >
       <Line

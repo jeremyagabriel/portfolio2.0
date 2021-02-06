@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { FlexCol, MotionBox, MotionText } from '../Components';
+import { jsx, Text } from 'theme-ui';
+import { FlexCol, MotionBox } from '../Components';
 import { UnderlineButton } from '../UnderlineButton';
 
 
@@ -11,37 +11,33 @@ export const FooterHeading = () => {
       data-comp={FooterHeading.displayName}
       sx={boxSx}
     >
-      <MotionText
-        animateOnLoad={true}
-        variants='default'
-        variant='text.h2'
-        threshold={0.25}
-        sx={{
-          ...textSx,
-          'WebkitTextFillColor': 'transparent',
-          'WebkitTextStrokeWidth': '1px',
-          'WebkitTextStrokeColor': 'white',
-        }}
-      >
-        LET'S BUILD
-      </MotionText>
-      <MotionText
-        animateOnLoad={true}
-        variants='default'
-        variant='text.h2'
-        threshold={0.25}
-        sx={{
-          ...textSx,
-          mb: [3]
-        }}
-      >
-        TOGETHER
-      </MotionText>
       <MotionBox
         animateOnLoad={true}
         variants='default'
         threshold={0.25}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start'
+        }}
       >
+        <Text
+          variant='text.h2'
+          sx={{
+            ...textSx,
+            'WebkitTextFillColor': 'transparent',
+            'WebkitTextStrokeWidth': '1px',
+            'WebkitTextStrokeColor': 'white',
+          }}
+        >
+          LET'S BUILD
+        </Text>
+        <Text
+          variant='text.h2'
+          sx={{ ...textSx, mb: [3] }}
+        >
+          TOGETHER
+        </Text>
         <UnderlineButton
           text='jeremyagabriel.dev@gmail.com'
         />
