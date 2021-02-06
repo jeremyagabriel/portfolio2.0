@@ -13,7 +13,7 @@ import { Navbar } from './Navbar';
 import { Splash } from '../Splash';
 import { GameContainer } from '../Game';
 import { contactAtom, aboutAtom, projectsAtom } from '../../lib/atoms';
-import Preview from '../../assets/images/linkpreview.jpg';
+import Preview from '../../assets/images/jeremy-cartoon.jpg';
 
 
 export const Header = () => {
