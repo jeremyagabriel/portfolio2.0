@@ -117,7 +117,8 @@ export const ParallaxAvatar = () => {
           alt='Jeremy Gabriel Avatar'
           lazy={false}
           sx={{
-            height: ['630px'],
+            // height: ['630px'],
+            width: '1200px',
             objectFit: 'contain',
             userSelect: 'none',
           }}
