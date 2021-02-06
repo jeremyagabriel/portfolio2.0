@@ -3,7 +3,7 @@ import { jsx, Box } from 'theme-ui';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { Image } from '../Components';
 import { Line } from '../Animations';
-import JeremyCartoon from '../../assets/images/jeremy-cartoon.jpg';
+import JeremyCartoon from '../../assets/images/cartoon.png';
 import Halftone from '../../assets/images/halftone.png';
 
 
@@ -109,7 +109,6 @@ export const ParallaxAvatar = () => {
           position: 'absolute',
           top: '-60px',
           left: '70px',
-          width: '1200px'
         }}
         style={{ y: y4 }}
       >
@@ -118,7 +117,7 @@ export const ParallaxAvatar = () => {
           alt='Jeremy Gabriel Avatar'
           lazy={false}
           sx={{
-            // height: ['320px', null, null, '380px'],
+            height: ['320px', null, null, '380px'],
             objectFit: 'contain',
             userSelect: 'none',
           }}
