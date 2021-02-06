@@ -3,7 +3,7 @@ import { jsx, Box } from 'theme-ui';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { Image } from '../Components';
 import { Line } from '../Animations';
-import JeremyCartoon from '../../assets/images/jeremy-cartoon.png';
+import JeremyCartoon from '../../assets/images/cartoon-jeremy.png';
 import Halftone from '../../assets/images/halftone.png';
 
 
