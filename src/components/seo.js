@@ -42,14 +42,6 @@ export const SEO = () => {
         propety='og:image'
         content={url + image}
       />
-      <Meta
-        propety='og:image:width'
-        content='1200'
-      />
-      <Meta
-        propety='og:image:height'
-        content='630'
-      />
     </>
   );
 }
