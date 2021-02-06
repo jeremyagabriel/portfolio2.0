@@ -39,6 +39,10 @@ export const SEO = () => {
         {
           property: 'og:description',
           content: description
+        },
+        {
+          property: 'og:type',
+          content: 'website'
         }
       ]}
     />
