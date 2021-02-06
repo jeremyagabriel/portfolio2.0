@@ -9,41 +9,39 @@ export const SEO = () => {
   const { title, description, url, image, author, keywords } = site.siteMetadata;
 
   return (
-    <Helmet>
-      <title>{title}</title>
-      <meta
-        name='description'
-        content={description}
-      />
-      <meta
-        name='author'
-        content={author}
-      />
-      <meta
-        name='keywords'
-        content={keywords}
-      />
-      <meta
-        name='image'
-        content={image}
-      />
-      <meta
-        property='og:url'
-        content={url}
-      />
-      <meta
-        propety='og:title'
-        content={title}
-      />
-      <meta
-        propety='og:description'
-        content={description}
-      />
-      <meta
-        propety='og:image'
-        content={url + image}
-      />
-    </Helmet>
+    <Helmet
+      title={title}
+      meta={[
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          name: 'author',
+          content: author
+        },
+        {
+          name: 'keywords',
+          content: keywords
+        },
+        {
+          property: 'og:image',
+          content: url + image
+        },
+        {
+          property: 'og:url',
+          content: url
+        },
+        {
+          property: 'og:title',
+          content: title
+        },
+        {
+          property: 'og:description',
+          content: description
+        }
+      ]}
+    />
   );
 }
 
@@ -61,37 +59,3 @@ export const query = graphql`
     }
   }
 `;
-
-{/* <Title>{title}</Title>
-<Meta
-  name='description'
-  content={description}
-/>
-<Meta
-  name='author'
-  content={author}
-/>
-<Meta
-  name='keywords'
-  content={keywords}
-/>
-<Meta
-  name='image'
-  content={image}
-/>
-<Meta
-  property='og:url'
-  content={url}
-/>
-<Meta
-  propety='og:title'
-  content={title}
-/>
-<Meta
-  propety='og:description'
-  content={description}
-/>
-<Meta
-  propety='og:image'
-  content={url + image}
-/> */}
