@@ -14,24 +14,15 @@ export const SplashHeading = () => {
       animate='hidden'
       variants={{
         visible: { opacity: 1 },
-        hidden: { opacity: 0, transition: { delay: 1.8, duration: 0.3 }}
+        hidden: {
+          opacity: 0,
+          transition: {
+            delay: 2,
+            duration: 0.3
+          }
+        }
       }}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        zIndex: 5,
-        transform: 'rotate(-15deg)',
-        overflow: 'initial',
-      }}
+      sx={boxSx}
     >
       <Flex>
         <SplashLinesLeft />
@@ -46,28 +37,9 @@ export const SplashHeading = () => {
               x: '-70%',
               opacity: 0,
             },
-            visible: {
-              x: '0',
-              opacity: [0, 0, 1],
-              transition: {
-                duration: 0.4,
-                // type: "spring",
-                // stiffness: 700,
-                // damping: 30,
-              }
-            }
+            visible: visibleVariant
           }}
-          sx={{
-            color: 'white',
-            fontSize: [setVw(150), null, '150px'],
-            width: [setVw(350), null, '350px'],
-            fontWeight: 'semi',
-            fontStyle: 'italic',
-            'WebkitTextFillColor': 'transparent',
-            'WebkitTextStrokeWidth': '1.5px',
-            'WebkitTextStrokeColor': 'white',
-            mr: [setVw(192), null, '172px'],
-          }}
+          sx={helloSx}
         />
       </Flex>
 
@@ -82,27 +54,9 @@ export const SplashHeading = () => {
               x: '70%',
               opacity: 0,
             },
-            visible: {
-              x: 0,
-              opacity: [0, 0, 1],
-              transition: {
-                // duration: 0.3,
-                // type: "spring",
-                // stiffness: 700,
-                // damping: 30,
-                duration: 0.4,
-              }
-            }
+            visible: visibleVariant
           }}
-          sx={{
-            color: 'white',
-            fontSize: [setVw(150), null, '150px'],
-            width: [setVw(390), null, '390px'],
-            fontWeight: 'semi',
-            fontStyle: 'italic',
-            mt: [setVw(-30), null, '-30px'],
-            ml: [setVw(192), null, '172px'],
-          }}
+          sx={worldSx}
         />
 
         <SplashLinesRight />
@@ -113,5 +67,53 @@ export const SplashHeading = () => {
 
 const bp = 600;
 const setVw = px => px / (bp / 100) + 'vw';
+
+const boxSx = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  zIndex: 5,
+  transform: 'rotate(-15deg)',
+};
+
+const helloSx = {
+  color: 'white',
+  fontSize: [setVw(150), null, '150px'],
+  width: [setVw(350), null, '350px'],
+  fontWeight: 'semi',
+  fontStyle: 'italic',
+  'WebkitTextFillColor': 'transparent',
+  'WebkitTextStrokeWidth': '1.5px',
+  'WebkitTextStrokeColor': 'white',
+  mr: [setVw(192), null, '172px'],
+  userSelect: 'none',
+};
+
+const worldSx = {
+  color: 'white',
+  fontSize: [setVw(150), null, '150px'],
+  width: [setVw(390), null, '390px'],
+  fontWeight: 'semi',
+  fontStyle: 'italic',
+  mt: [setVw(-30), null, '-30px'],
+  ml: [setVw(192), null, '172px'],
+  userSelect: 'none',
+};
+
+const visibleVariant = {
+  x: 0,
+  opacity: [0, 0, 1],
+  transition: {
+    duration: 0.4,
+  }
+};
 
 SplashHeading.displayName = 'SplashHeading';

@@ -21,7 +21,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: `Jeremy Gabriel's Portfolio`,
+    title: `Jeremy Gabriel - Portfolio`,
     description: `Front-End Engineer with a love for building efficient code and intuitive user experiences.`,
     url: `https://www.jeremyagabriel.com`,
     image: `/images/linkpreview_v2.jpg`,
@@ -47,21 +47,12 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -20,
-        duration: 1500,
-      }
-    },
-    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: spaceId,
         accessToken: accessToken,
       },
     },
-    `gatsby-plugin-smoothscroll`,
-    `gatsby-plugin-react-head`,
     `gatsby-plugin-react-helmet`
   ],
 }

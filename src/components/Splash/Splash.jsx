@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui';
 import React from 'react';
 import { MotionBox } from '../Components';
 import { SplashHeading } from './SplashHeading';
+import { SplashLogo } from './SplashLogo';
 
 
 export const Splash = () => {
@@ -22,7 +23,7 @@ export const Splash = () => {
             // y: '0',
             transition: {
               duration: 0.7,
-              delay: 1.7,
+              delay: 1.8,
             }
           }
         }}
@@ -35,10 +36,10 @@ export const Splash = () => {
           bottom: 0,
           right: 0,
           bg: 'tertiary',
-          // zIndex: 4,
         }}
       />
       <SplashHeading />
+      {/* <SplashLogo /> */}
     </>
   )
 }
