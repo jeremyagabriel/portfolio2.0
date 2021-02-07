@@ -23,7 +23,7 @@ export const Splash = () => {
             // y: '0',
             transition: {
               duration: 0.7,
-              delay: 1.8,
+              delay: 1.7,
             }
           }
         }}

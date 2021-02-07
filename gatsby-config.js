@@ -21,7 +21,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: `Jeremy Gabriel - Portfolio`,
+    title: `Jeremy Gabriel | Portfolio`,
     description: `Front-End Engineer with a love for building efficient code and intuitive user experiences.`,
     url: `https://www.jeremyagabriel.com`,
     image: `/images/linkpreview_v2.jpg`,

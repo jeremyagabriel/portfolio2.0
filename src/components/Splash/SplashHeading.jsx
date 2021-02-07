@@ -17,7 +17,7 @@ export const SplashHeading = () => {
         hidden: {
           opacity: 0,
           transition: {
-            delay: 2,
+            delay: 1.8,
             duration: 0.3
           }
         }
