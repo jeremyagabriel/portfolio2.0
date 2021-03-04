@@ -69,8 +69,8 @@ export const query = graphql`
             repoUrl
             siteUrl
             image {
-              fluid {
-                srcWebp
+              file {
+                url
               }
             }
             tags

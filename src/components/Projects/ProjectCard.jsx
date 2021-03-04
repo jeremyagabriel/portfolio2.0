@@ -16,7 +16,7 @@ export const ProjectCard = ({ project, index }) => {
         threshold={0}
       >
         <Image
-          src={project?.image?.fluid?.srcWebp}
+          src={project?.image?.file?.url}
           sx={{
             width: '100%',
             height: 'auto',
