@@ -43,74 +43,80 @@ export const Menu = ({
   ];
 
   useEffect(() => {
+    if (!menuOpen) return;
     menuRef.current = document.querySelector('#menu');
     menuOpen && disableBodyScroll(menuRef.current);
     return () => clearAllBodyScrollLocks();
   }, [menuOpen])
 
   return (
-    <MotionBox
-      data-comp={Menu.displayName}
-      id='menu'
-      sx={menuSx}
-      animate={menuOpen ? 'visible' : 'hidden'}
-      variants={{
-        hidden: {
-          y: '100%',
-          transition: {
-            duration: 0.5
-          }
-        },
-        visible: {
-          y: 0,
-          transition: {
-            duration: 0.5,
-            staggerChildren: 0.5
-          }
-        }
-      }}
-      {...props}
-    >
-      { links.map((link, index) => (
-        <MotionText
-          variants='default'
-          delay={0.2}
-          animateOnLoad={true}
-          key={index}
-          variant='text.h2'
-          sx={{
-            color: 'white',
-            mb: index === links.length - 1 ? 0 : 7,
-            cursor: 'pointer',
+    <AnimatePresence>
+      { menuOpen &&
+        <MotionBox
+          data-comp={Menu.displayName}
+          id='menu'
+          sx={menuSx}
+          animate={menuOpen ? 'visible' : 'hidden'}
+          exit='hidden'
+          variants={{
+            hidden: {
+              y: '100%',
+              transition: {
+                duration: 0.5
+              }
+            },
+            visible: {
+              y: 0,
+              transition: {
+                duration: 0.5,
+                staggerChildren: 0.5
+              }
+            }
           }}
-          onClick={() => {
-            if (!link.to) return;
-            closeMenu();
-            clearAllBodyScrollLocks();
-            typeof link.to === 'object'
-              ? link.to.current.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                })
-              : window.open(link.to, '_blank')
-          }}
+          {...props}
         >
-          {link.label}
-        </MotionText>
-      ))}
-      <FaTimes
-        sx={{
-          display: ['block', null, 'none'],
-          color: 'white',
-          fontSize: '30px',
-          cursor: 'pointer',
-          position: 'absolute',
-          top: [3],
-          right: [3],
-        }}
-        onClick={onMenuClick}
-      />
-    </MotionBox>
+          { links.map((link, index) => (
+            <MotionText
+              variants='default'
+              delay={0.2}
+              animateOnLoad={true}
+              key={index}
+              variant='text.h2'
+              sx={{
+                color: 'white',
+                mb: index === links.length - 1 ? 0 : 7,
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                if (!link.to) return;
+                closeMenu();
+                clearAllBodyScrollLocks();
+                typeof link.to === 'object'
+                  ? link.to.current.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                    })
+                  : window.open(link.to, '_blank')
+              }}
+            >
+              {link.label}
+            </MotionText>
+          ))}
+          <FaTimes
+            sx={{
+              display: ['block', null, 'none'],
+              color: 'white',
+              fontSize: '30px',
+              cursor: 'pointer',
+              position: 'absolute',
+              top: [3],
+              right: [3],
+            }}
+            onClick={onMenuClick}
+          />
+        </MotionBox>
+      }
+    </AnimatePresence>
   );
 }
 

@@ -123,7 +123,7 @@ export const Header = () => {
         />
       }
 
-      { menuOpen && !gameOpen &&
+      { !gameOpen &&
         <Menu
           menuOpen={menuOpen}
           closeMenu={() => setMenuOpen(false)}
